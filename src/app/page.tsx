@@ -3,12 +3,12 @@ import portrait from "@/assets/ryan.jpg";
 import BaseLink from "@/components/BaseLink";
 import Contact from "@/components/Contact";
 import RichText from "@/components/RichText";
-import { profile } from "@/content/site";
+import { lineup, profile } from "@/content/site";
 
-const lineup = [
-  { index: 1, short: "1B", name: "Experience", desc: "The roles I've held and what I accomplished in each one." },
-  { index: 2, short: "2B", name: "Projects", desc: "Things I've built, the tools I used, and what I learned along the way." },
-  { index: 3, short: "3B", name: "Interests", desc: "What I'm into outside of work, starting with baseball." },
+const bases = [
+  { index: 1, short: "1B", name: "Experience", desc: lineup.experience },
+  { index: 2, short: "2B", name: "Projects", desc: lineup.projects },
+  { index: 3, short: "3B", name: "Interests", desc: lineup.interests },
 ];
 
 export default function Home() {
@@ -38,10 +38,10 @@ export default function Home() {
               <div className="row here">
                 <span className="pos">HP</span>
                 <span className="nm">About me</span>
-                <span className="ds">You&apos;re here, with who I am and how to reach me.</span>
+                <span className="ds">{lineup.about}</span>
               </div>
             </li>
-            {lineup.map((item) => (
+            {bases.map((item) => (
               <li key={item.short}>
                 <BaseLink index={item.index} className="row">
                   <span className="pos">{item.short}</span>

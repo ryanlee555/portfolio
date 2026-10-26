@@ -42,6 +42,8 @@ Living handoff file. Read this first in any new chat. Update it at the end of ev
 
 - [x] Field shows all four base labels whenever it's hovered (the base under the pointer brightens); footer split into "designed and developed by / Ryan Lee" (bottom left) and "all rights reserved, / ryan lee ©2026" (bottom right) at a smaller size (pushed)
 
+- [x] New "Round the bases" descriptions from Ryan; lineup copy moved into `src/content/site.ts` (`lineup`) (pushed)
+
 ## Next up
 - [ ] Message form delivery: create a free Formspree (or similar) form and set `NEXT_PUBLIC_FORM_ENDPOINT` (in `.env.local` and on the host). Until then, submitting opens the visitor's email app.
 - [ ] Replace sample content for Experience, Projects, Interests in `src/content/site.ts`
@@ -69,3 +71,4 @@ Living handoff file. Read this first in any new chat. Update it at the end of ev
 - 2026-10-26: Theme toggle, duck easter egg, footer, dock hover fix (laptop crashed mid-session; work intact); pushed.
 - 2026-10-26: Theme-switch reveal moved to CSS keyframes so content appears with the wave (Safari-safe).
 - 2026-10-26: All field labels on hover; footer credit left, rights right, smaller.
+- 2026-10-26: New lineup descriptions.

@@ -13,6 +13,14 @@ export const profile = {
   copyrightYear: 2026,
 };
 
+// The "Round the bases" list on Home: one line per page.
+export const lineup = {
+  about: "You're here right now, get to know me a little!",
+  experience: "Roles I've held and what I accomplished in each one",
+  projects: "Everything I've built and my lessons along the way",
+  interests: "I'm not that boring, I have hobbies too!",
+};
+
 export const contact = {
   heading: "Let's connect.",
   blurb:
