@@ -10,6 +10,7 @@ export const profile = {
     "Outside of school and work, I love working out, discovering new music, and sports, especially baseball, as you may have guessed from the theme. Use the mini baseball field in the bottom-right corner to round the bases and explore the rest of the site!",
   ],
   github: "https://github.com/ryanlee555",
+  copyrightYear: 2026,
 };
 
 export const contact = {

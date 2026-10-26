@@ -6,7 +6,6 @@ import { BASES, BASE_GO_EVENT, baseIndexForPath } from "@/lib/bases";
 import Penguin from "./Penguin";
 
 const STEP_MS = 650; // one base-to-base waddle
-const GROW_MS = 420; // dock growing before the penguin sets off
 const SETTLE_MS = 380; // pause on arrival before the dock shrinks
 
 const prefersReducedMotion = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -66,19 +65,21 @@ export default function Dock() {
     [segment],
   );
 
+  // Picked from the dock itself: keep it grown until the penguin arrives, even if the
+  // pointer leaves. Picked from anywhere else: the penguin waddles in the small dock.
   const go = useCallback(
-    async (target: number) => {
+    async (target: number, fromDock = false) => {
       if (busyRef.current || target === posRef.current) return;
       busyRef.current = true;
       const stage = stageRef.current;
-      const grown = stage?.matches(":hover") ?? false;
-      stage?.classList.add("peek");
-      if (!grown) await wait(GROW_MS);
+      if (fromDock) stage?.classList.add("peek");
       document.documentElement.setAttribute("data-leaving", "");
       await waddleTo(target);
       router.push(BASES[target].path);
-      await wait(SETTLE_MS);
-      stage?.classList.remove("peek");
+      if (fromDock) {
+        await wait(SETTLE_MS);
+        stage?.classList.remove("peek");
+      }
       busyRef.current = false;
     },
     [router, waddleTo],
@@ -121,13 +122,16 @@ export default function Dock() {
     if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
     e.preventDefault();
     e.currentTarget.blur();
-    go(index);
+    go(index, true);
   };
 
   const start = BASES[startIndex];
 
   return (
     <nav className="stage" ref={stageRef} aria-label="Pages">
+      <p className="dock-hint" aria-hidden="true">
+        Click a base, or use the ← → keys
+      </p>
       <svg viewBox="0 0 300 240">
         <polygon className="infield" points="150,205 215,140 150,75 85,140" />
         <path className="chalk draw foul" pathLength={1} d="M150 205 L262 93" />

@@ -4,6 +4,7 @@ import BaseLink from "@/components/BaseLink";
 import Cursor from "@/components/Cursor";
 import Dock from "@/components/Dock";
 import Loader from "@/components/Loader";
+import ThemeToggle from "@/components/ThemeToggle";
 import { contact, profile } from "@/content/site";
 import "./globals.css";
 
@@ -29,8 +30,9 @@ export const metadata: Metadata = {
   description: "Ryan Lee's portfolio: experience, projects, and interests, laid out like a baseball diamond.",
 };
 
-// Runs before first paint so the intro either plays or stays hidden without a flash.
-const introScript = `(function(){var d=document.documentElement;try{d.dataset.intro=sessionStorage.getItem("intro-seen")==="1"?"seen":"playing"}catch(e){d.dataset.intro="seen"}})()`;
+// Runs before first paint: applies a saved light theme (dark is the default) and decides
+// whether the intro plays, so neither flashes.
+const introScript = `(function(){var d=document.documentElement;try{if(localStorage.getItem("theme")==="light")d.dataset.theme="light"}catch(e){}try{d.dataset.intro=sessionStorage.getItem("intro-seen")==="1"?"seen":"playing"}catch(e){d.dataset.intro="seen"}})()`;
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
@@ -54,6 +56,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
               {profile.name}
             </BaseLink>
             <nav className="top-links mono" aria-label="Elsewhere">
+              <ThemeToggle />
               <a href={profile.github} target="_blank" rel="noopener noreferrer">
                 GitHub ↗
               </a>
@@ -63,9 +66,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             </nav>
           </header>
           <main>{children}</main>
-          <footer className="foot mono">
-            <span>{profile.name}</span>
-            <span>Click a base, or use the ← → keys</span>
+          <footer className="foot">
+            <p>
+              <span>all rights reserved,</span>
+              <span className="dim">
+                {profile.name.toLowerCase()} ©{profile.copyrightYear}
+              </span>
+            </p>
           </footer>
           <Dock />
         </div>

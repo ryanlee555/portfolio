@@ -31,6 +31,13 @@ Living handoff file. Read this first in any new chat. Update it at the end of ev
   - Contact scoreboard rebuilt: "Let's connect." + email/phone on the left, "Send a message" form on the right; LinkedIn removed from it (still in header)
   - Site-wide custom cursor: white dot with difference blend (dark on light bg, inverts over content), grows over links/buttons; off on touch screens
 
+- [x] Theme + polish pass (pushed):
+  - Dark/light mode, dark by default; sun/moon toggle left of GitHub; 0.75s circle-reveal animation (color fade fallback); choice saved in localStorage
+  - Dock grows only on real hover; links elsewhere (name, lineup) and arrow keys just make the penguin waddle in the small dock. "Click a base…" hint moved to the top of the grown field
+  - Hovering the penguin turns it into a little duck (easter egg)
+  - Footer on every page: "all rights reserved," / "ryan lee ©2026"
+  - Scoreboard about 12% shorter; page max width 1280px with wider side padding
+
 ## Next up
 - [ ] Message form delivery: create a free Formspree (or similar) form and set `NEXT_PUBLIC_FORM_ENDPOINT` (in `.env.local` and on the host). Until then, submitting opens the visitor's email app.
 - [ ] Replace sample content for Experience, Projects, Interests in `src/content/site.ts`
@@ -55,3 +62,4 @@ Living handoff file. Read this first in any new chat. Update it at the end of ev
 - 2026-10-26: Real Next.js site built from the preview; builds clean.
 - 2026-10-26: Pushed first version to GitHub.
 - 2026-10-26: Home page content, portrait, contact form, custom cursor; pushed.
+- 2026-10-26: Theme toggle, duck easter egg, footer, dock hover fix (laptop crashed mid-session; work intact); pushed.
