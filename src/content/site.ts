@@ -3,17 +3,23 @@
 
 export const profile = {
   name: "Ryan Lee",
-  intro:
-    "I build software, and I'd rather be at a ballpark. This is where you can see what I've worked on, in the order a runner would round the bases.",
+  greeting: "Hi, I'm Ryan!",
+  // One string per paragraph. Wrap text in **double asterisks** to bold it.
+  intro: [
+    "Thanks for visiting my portfolio! I'm a fourth-year student at UC Berkeley studying **Industrial Engineering** and **Data Science**. I've explored a few different paths, including consulting and program management, but I ended up falling in love with product, and that's what I'm pursuing now. I love building products from 0 to 1 and learning something new with each one.",
+    "Outside of school and work, I love working out, discovering new music, and sports, especially baseball, as you may have guessed from the theme. Use the mini baseball field in the bottom-right corner to round the bases and explore the rest of the site!",
+  ],
   github: "https://github.com/ryanlee555",
 };
 
 export const contact = {
+  heading: "Let's connect.",
+  blurb:
+    "Reach out through the form if you have any questions or just want to connect, and I'll get back to you as soon as I can :D",
   email: "ryan.lee55@berkeley.edu",
   phone: "(714) 909-8464",
   phoneHref: "tel:+17149098464",
   linkedin: "https://www.linkedin.com/in/ryan-lee-uc-berkeley/",
-  linkedinLabel: "linkedin.com/in/ryan-lee-uc-berkeley",
 };
 
 export type Role = {

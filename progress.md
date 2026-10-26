@@ -22,11 +22,19 @@ Living handoff file. Read this first in any new chat. Update it at the end of ev
   - Scoreboard contact block (email, phone, LinkedIn, copy buttons); GitHub + LinkedIn in header
   - Penguin favicon (`src/app/icon.svg`)
   - `npm run build` and `npm run lint` pass; navigation checked in the production build
+- [x] First version committed and pushed to `main` (commit 28427bf)
+
+- [x] Home page, real content (session focus: home page only):
+  - Circle portrait above "Hi, I'm Ryan!" (`src/assets/ryan.jpg`, cropped from the restaurant photo; the round beach photo had a stray overlay dot)
+  - Real two-paragraph intro (fourth-year at Berkeley, IE + Data Science, product focus); removed the "Home plate · About" eyebrow
+  - Lineup ("Round the bases") with one-sentence descriptions, bottom-aligned beside the intro
+  - Contact scoreboard rebuilt: "Let's connect." + email/phone on the left, "Send a message" form on the right; LinkedIn removed from it (still in header)
+  - Site-wide custom cursor: white dot with difference blend (dark on light bg, inverts over content), grows over links/buttons; off on touch screens
 
 ## Next up
-- [ ] Replace sample content in `src/content/site.ts` (intro line, real experience, projects, interests)
+- [ ] Message form delivery: create a free Formspree (or similar) form and set `NEXT_PUBLIC_FORM_ENDPOINT` (in `.env.local` and on the host). Until then, submitting opens the visitor's email app.
+- [ ] Replace sample content for Experience, Projects, Interests in `src/content/site.ts`
 - [ ] Look over the site in a normal browser at laptop size (`npm run dev`, http://localhost:3000) and note tweaks
-- [ ] First commit + push to GitHub (nothing committed yet)
 - [ ] Pick hosting and deploy (Vercel suggested)
 - [ ] Optional: resume link/PDF, project detail links, Open Graph image
 
@@ -45,3 +53,5 @@ Living handoff file. Read this first in any new chat. Update it at the end of ev
 - 2026-10-26: Project set up; repo connected; progress tracking added.
 - 2026-10-26: Preview iterated to v8 (hover-grow dock, penguin, scoreboard).
 - 2026-10-26: Real Next.js site built from the preview; builds clean.
+- 2026-10-26: Pushed first version to GitHub.
+- 2026-10-26: Home page content, portrait, contact form, custom cursor; pushed.

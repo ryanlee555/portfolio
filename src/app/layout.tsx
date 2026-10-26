@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Bricolage_Grotesque, DM_Mono, Hanken_Grotesk } from "next/font/google";
 import BaseLink from "@/components/BaseLink";
+import Cursor from "@/components/Cursor";
 import Dock from "@/components/Dock";
 import Loader from "@/components/Loader";
 import { contact, profile } from "@/content/site";
@@ -68,6 +69,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           </footer>
           <Dock />
         </div>
+        <Cursor />
       </body>
     </html>
   );
