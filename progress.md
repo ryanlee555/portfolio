@@ -38,6 +38,8 @@ Living handoff file. Read this first in any new chat. Update it at the end of ev
   - Footer on every page: "all rights reserved," / "ryan lee ©2026"
   - Scoreboard about 12% shorter; page max width 1280px with wider side padding
 
+- [x] Theme switch reveal reworked (pushed): feathered circle edge driven by a plain CSS `@keyframes` on `::view-transition-new(root)` (was a JS `animate()` call, which likely no-ops in Safari, causing the "blink at the end" the user saw). Verified frame-by-frame in headless Chrome that content transitions with the wave. Confirmed working in the user's browser.
+
 ## Next up
 - [ ] Message form delivery: create a free Formspree (or similar) form and set `NEXT_PUBLIC_FORM_ENDPOINT` (in `.env.local` and on the host). Until then, submitting opens the visitor's email app.
 - [ ] Replace sample content for Experience, Projects, Interests in `src/content/site.ts`
@@ -63,3 +65,4 @@ Living handoff file. Read this first in any new chat. Update it at the end of ev
 - 2026-10-26: Pushed first version to GitHub.
 - 2026-10-26: Home page content, portrait, contact form, custom cursor; pushed.
 - 2026-10-26: Theme toggle, duck easter egg, footer, dock hover fix (laptop crashed mid-session; work intact); pushed.
+- 2026-10-26: Theme-switch reveal moved to CSS keyframes so content appears with the wave (Safari-safe).

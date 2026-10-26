@@ -39,7 +39,19 @@
 }
 
 /* theme switch: a circle reveal from the toggle (view transitions), or a color fade as fallback */
+/* The new theme grows out of the toggle with a soft edge, so content fades in as the wave passes
+   instead of popping in at a hard line. --reveal is the wave's outer radius; the toggle sets the
+   origin (--tx, --ty) and the final radius (--reveal-to). Plain CSS keyframes, so Safari runs it too. */
+@property --reveal { syntax: "<length>"; inherits: false; initial-value: 0px; }
 ::view-transition-old(root), ::view-transition-new(root) { animation: none; mix-blend-mode: normal; }
+::view-transition-new(root) {
+  animation: theme-reveal .9s cubic-bezier(.45, 0, .25, 1) both;
+  --feather: 220px;
+  -webkit-mask-image: radial-gradient(circle at var(--tx, 100%) var(--ty, 0%), #000 calc(var(--reveal) - var(--feather)), transparent var(--reveal));
+  mask-image: radial-gradient(circle at var(--tx, 100%) var(--ty, 0%), #000 calc(var(--reveal) - var(--feather)), transparent var(--reveal));
+}
+@keyframes theme-reveal { from { --reveal: 0px; } to { --reveal: var(--reveal-to, 2400px); } }
+html.theme-switching *, html.theme-switching *::before, html.theme-switching *::after { transition: none !important; }
 html.theme-fade, html.theme-fade * {
   transition: background-color .7s ease, color .7s ease, border-color .7s ease, fill .7s ease, stroke .7s ease !important;
 }

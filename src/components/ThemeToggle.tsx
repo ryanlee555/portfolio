@@ -45,17 +45,19 @@ export default function ThemeToggle() {
     const box = e.currentTarget.getBoundingClientRect();
     const x = box.left + box.width / 2;
     const y = box.top + box.height / 2;
-    const r = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
-    // If the browser skips the animation (e.g. the tab is hidden), the theme still changes.
-    document
-      .startViewTransition(commit)
-      .ready.then(() => {
-        root.animate(
-          { clipPath: [`circle(0px at ${x}px ${y}px)`, `circle(${r}px at ${x}px ${y}px)`] },
-          { duration: 750, easing: "cubic-bezier(.4, 0, .2, 1)", pseudoElement: "::view-transition-new(root)" },
-        );
-      })
-      .catch(() => {});
+    const feather = 220; // keep in sync with --feather in globals.css
+    const r = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y)) + feather;
+    // The wave itself is a CSS animation on ::view-transition-new(root); it reads these.
+    root.style.setProperty("--tx", `${x}px`);
+    root.style.setProperty("--ty", `${y}px`);
+    root.style.setProperty("--reveal-to", `${r}px`);
+    // Freeze other color transitions so nothing changes on its own timer mid-reveal.
+    root.classList.add("theme-switching");
+
+    const transition = document.startViewTransition(commit);
+    // The browser may skip the animation (e.g. a hidden tab); the theme still changes.
+    transition.ready.catch(() => {});
+    transition.finished.finally(() => root.classList.remove("theme-switching"));
   };
 
   return (
