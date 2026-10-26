@@ -172,6 +172,12 @@ html.has-cursor, html.has-cursor * { cursor: none !important; }
 /* experience */
 .roles { margin: 48px 0 0; border-top: 1px solid var(--line); }
 .role { display: grid; grid-template-columns: 11rem minmax(0, 1fr); gap: 8px 40px; padding: 30px 0; border-bottom: 1px solid var(--line); }
+.role-side { display: grid; gap: 16px; align-content: start; justify-items: start; }
+/* Logos sit straight on the page. Dark logos (Uber, ServiceNow) have a light twin for dark mode. */
+.role-logo { display: flex; align-items: center; margin-top: 4px; }
+.role-logo img { display: block; width: auto; height: 100%; max-width: 180px; object-fit: contain; }
+.role-logo .logo-on-light, :root[data-theme="light"] .role-logo .logo-on-dark { display: none; }
+:root[data-theme="light"] .role-logo .logo-on-light { display: block; }
 .role h3 { font: 600 1.5rem/1.2 var(--f-display); letter-spacing: -0.015em; margin: 0; }
 .role .org { color: var(--muted); margin: 4px 0 0; }
 .role ul { margin: 14px 0 0; padding-left: 1.1em; max-width: 42em; }

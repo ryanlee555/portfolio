@@ -1,3 +1,12 @@
+import type { StaticImageData } from "next/image";
+import cisco from "@/assets/logos/cisco.png";
+import pepsico from "@/assets/logos/pepsico.png";
+import servicenowDark from "@/assets/logos/servicenow-dark.png";
+import servicenow from "@/assets/logos/servicenow.png";
+import tesla from "@/assets/logos/tesla.png";
+import uberDark from "@/assets/logos/uber-dark.png";
+import uber from "@/assets/logos/uber.png";
+
 // All site copy lives here. Edit this file to change what the pages say.
 // Entries marked "sample" are placeholders to replace with real content.
 
@@ -34,6 +43,9 @@ export const contact = {
 
 export type Role = {
   company: string;
+  logo: StaticImageData;
+  logoDark?: StaticImageData; // light-colored version for dark mode, when the logo itself is dark
+  logoHeight: number; // px; set per logo so wordmarks and icons look about the same size
   role: string;
   location: string;
   dates: string;
@@ -44,6 +56,8 @@ export type Role = {
 export const experience: Role[] = [
   {
     company: "Cisco",
+    logo: cisco,
+    logoHeight: 68,
     role: "AI Product Management Intern",
     location: "San Jose, CA",
     dates: "Jun 2026 – Sep 2026",
@@ -55,6 +69,8 @@ export const experience: Role[] = [
   },
   {
     company: "Tesla",
+    logo: tesla,
+    logoHeight: 84,
     role: "Technical Program Management Intern",
     location: "Palo Alto, CA",
     dates: "Jan 2026 – Apr 2026",
@@ -66,6 +82,9 @@ export const experience: Role[] = [
   },
   {
     company: "ServiceNow",
+    logo: servicenow,
+    logoDark: servicenowDark,
+    logoHeight: 26,
     role: "Product Manager (Contract)",
     location: "San Francisco, CA",
     dates: "Sep 2025 – Dec 2025",
@@ -77,6 +96,8 @@ export const experience: Role[] = [
   },
   {
     company: "PepsiCo",
+    logo: pepsico,
+    logoHeight: 88,
     role: "Supply Chain Intern",
     location: "Bakersfield, CA",
     dates: "Jun 2025 – Aug 2025",
@@ -88,6 +109,9 @@ export const experience: Role[] = [
   },
   {
     company: "Uber",
+    logo: uber,
+    logoDark: uberDark,
+    logoHeight: 38,
     role: "Technical Product Manager (Contract)",
     location: "San Francisco, CA",
     dates: "Feb 2025 – May 2025",

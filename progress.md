@@ -46,6 +46,8 @@ Living handoff file. Read this first in any new chat. Update it at the end of ev
 
 - [x] Resume: `public/ryan-lee-resume.pdf` (copied from Ryan's resume), linked as "Resume ↗" in the header between the theme toggle and GitHub. Experience page filled from it: Cisco, Tesla, ServiceNow, PepsiCo, Uber (company as heading, role · location under it). (pushed)
 
+- [x] Company logos under each role's dates on Experience (`src/assets/logos/`), no tiles, larger, sized per logo (`logoHeight`: Cisco 68, Tesla 84, ServiceNow 26, PepsiCo 88, Uber 38). Uber and ServiceNow have light `-dark.png` twins that swap in for dark mode. (pushed)
+
 ## Next up
 - [ ] Theme toggle misbehaves on Home only (works on Projects/Interests). Not reproducible in headless Chrome or WebKit; suspect scrollable-page/scrollbar snapshot difference. Waiting on Ryan: does Experience (also scrolls) break too, which browser, and what exactly happens.
 - [ ] Projects page could be filled from the resume too (Grove, Speakeasy, Brain Alarm)
@@ -77,3 +79,4 @@ Living handoff file. Read this first in any new chat. Update it at the end of ev
 - 2026-10-26: All field labels on hover; footer credit left, rights right, smaller.
 - 2026-10-26: New lineup descriptions.
 - 2026-10-26: Resume link in header; Experience filled from resume.
+- 2026-10-26: Company logos on Experience (boxless, theme-aware).

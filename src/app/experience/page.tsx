@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { experience } from "@/content/site";
 
 export const metadata: Metadata = { title: "Experience" };
@@ -11,7 +12,18 @@ export default function Experience() {
       <div className="roles">
         {experience.map((role) => (
           <article className="role" key={`${role.company}-${role.dates}`}>
-            <div className="mono">{role.dates}</div>
+            <div className="role-side">
+              <div className="mono">{role.dates}</div>
+              <div className="role-logo" style={{ height: role.logoHeight }}>
+                <Image
+                  src={role.logo}
+                  alt={`${role.company} logo`}
+                  className={role.logoDark ? "logo-on-light" : undefined}
+                  sizes="180px"
+                />
+                {role.logoDark && <Image src={role.logoDark} alt="" className="logo-on-dark" sizes="180px" />}
+              </div>
+            </div>
             <div>
               <h3>{role.company}</h3>
               <p className="org">
