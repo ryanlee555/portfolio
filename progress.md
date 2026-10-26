@@ -48,6 +48,8 @@ Living handoff file. Read this first in any new chat. Update it at the end of ev
 
 - [x] Company logos under each role's dates on Experience (`src/assets/logos/`), no tiles, larger, sized per logo (`logoHeight`: Cisco 68, Tesla 84, ServiceNow 26, PepsiCo 88, Uber 38). Uber and ServiceNow have light `-dark.png` twins that swap in for dark mode. (pushed)
 
+- [x] Experience bullets auto-bold every number with its symbols ($1.2M+, 40%, 15–25%, 350+) via `BoldNumbers` in `src/components/RichText.tsx`; bullets narrowed to ~30em (about 60 characters a line), left-aligned with `text-wrap: pretty` for even-ish line endings; no hyphenation (Ryan doesn't want split words; tried justify first); "12‑minute" uses a non-breaking hyphen (pushed)
+
 ## Next up
 - [ ] Theme toggle misbehaves on Home only (works on Projects/Interests). Not reproducible in headless Chrome or WebKit; suspect scrollable-page/scrollbar snapshot difference. Waiting on Ryan: does Experience (also scrolls) break too, which browser, and what exactly happens.
 - [ ] Projects page could be filled from the resume too (Grove, Speakeasy, Brain Alarm)
@@ -80,3 +82,4 @@ Living handoff file. Read this first in any new chat. Update it at the end of ev
 - 2026-10-26: New lineup descriptions.
 - 2026-10-26: Resume link in header; Experience filled from resume.
 - 2026-10-26: Company logos on Experience (boxless, theme-aware).
+- 2026-10-26: Numbers bolded, bullets narrowed and balanced (no hyphens) on Experience.

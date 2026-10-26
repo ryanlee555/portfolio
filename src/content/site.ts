@@ -63,7 +63,7 @@ export const experience: Role[] = [
     dates: "Jun 2026 – Sep 2026",
     points: [
       "Owned and delivered 2 features end-to-end for AI Canvas (Cisco's newest AI collaborative workspace app, launched in Aug 2026), redesigning the main navigation page and restructuring the backend for quick-start prompts",
-      "Launched 3 Jira internal automation skills adopted by 400+ people org-wide, cutting a 12-minute manual process by 90%",
+      "Launched 3 Jira internal automation skills adopted by 400+ people org-wide, cutting a 12‑minute manual process by 90%",
       "Built an automated metrics dashboard consolidating 50+ Cisco dashboards and achieving a 99% approval rating",
     ],
   },

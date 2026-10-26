@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { BoldNumbers } from "@/components/RichText";
 import { experience } from "@/content/site";
 
 export const metadata: Metadata = { title: "Experience" };
@@ -31,7 +32,9 @@ export default function Experience() {
               </p>
               <ul>
                 {role.points.map((point) => (
-                  <li key={point}>{point}</li>
+                  <li key={point}>
+                    <BoldNumbers text={point} />
+                  </li>
                 ))}
               </ul>
             </div>
