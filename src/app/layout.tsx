@@ -57,6 +57,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             </BaseLink>
             <nav className="top-links mono" aria-label="Elsewhere">
               <ThemeToggle />
+              <a href={profile.resume} target="_blank" rel="noopener noreferrer">
+                Resume ↗
+              </a>
               <a href={profile.github} target="_blank" rel="noopener noreferrer">
                 GitHub ↗
               </a>

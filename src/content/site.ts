@@ -10,6 +10,7 @@ export const profile = {
     "Outside of school and work, I love working out, discovering new music, and sports, especially baseball, as you may have guessed from the theme. Use the mini baseball field in the bottom-right corner to round the bases and explore the rest of the site!",
   ],
   github: "https://github.com/ryanlee555",
+  resume: "/ryan-lee-resume.pdf",
   copyrightYear: 2026,
 };
 
@@ -32,40 +33,68 @@ export const contact = {
 };
 
 export type Role = {
+  company: string;
+  role: string;
+  location: string;
   dates: string;
-  title: string;
-  org: string;
   points: string[];
 };
 
-// sample
+// From the resume (public/ryan-lee-resume.pdf), newest first.
 export const experience: Role[] = [
   {
+    company: "Cisco",
+    role: "AI Product Management Intern",
+    location: "San Jose, CA",
+    dates: "Jun 2026 – Sep 2026",
+    points: [
+      "Owned and delivered 2 features end-to-end for AI Canvas (Cisco's newest AI collaborative workspace app, launched in Aug 2026), redesigning the main navigation page and restructuring the backend for quick-start prompts",
+      "Launched 3 Jira internal automation skills adopted by 400+ people org-wide, cutting a 12-minute manual process by 90%",
+      "Built an automated metrics dashboard consolidating 50+ Cisco dashboards and achieving a 99% approval rating",
+    ],
+  },
+  {
+    company: "Tesla",
+    role: "Technical Program Management Intern",
+    location: "Palo Alto, CA",
+    dates: "Jan 2026 – Apr 2026",
+    points: [
+      "Coordinated requirements from engineering to allocate 350+ vehicle Chassis Controls fleet across global sites",
+      "Developed and iterated an internal fleet audit web tool, reducing audit processing time by 40% across 14 teams",
+      "Procured $1.2M+ in parts and materials, overseeing end-to-end ordering processes to ensure operational continuity",
+    ],
+  },
+  {
+    company: "ServiceNow",
+    role: "Product Manager (Contract)",
+    location: "San Francisco, CA",
+    dates: "Sep 2025 – Dec 2025",
+    points: [
+      "Executed user and market research with 40 startups and SMBs, uncovering onboarding and pricing friction points",
+      "Built a GTM plan boosting trial-to-paid conversion by 35% via streamlined onboarding and success programs",
+      "Benchmarked 8 competing platforms using MySQL queries and Tableau dashboards to identify 10 market gaps",
+    ],
+  },
+  {
+    company: "PepsiCo",
+    role: "Supply Chain Intern",
+    location: "Bakersfield, CA",
     dates: "Jun 2025 – Aug 2025",
-    title: "Software Engineering Intern",
-    org: "Company Name · City, ST",
     points: [
-      "One line on the biggest thing you shipped, with a number if you have one.",
-      "One line on the tools or team you worked with.",
-      "One line on what changed because of your work.",
+      "Automated a redispatch tracking tool for 150+ weekly truckloads, surfacing driver, timing, and location data",
+      "Reduced manual lookup time by 60% by streamlining dispatch workflows leveraging data from SAP and Excel",
+      "Cut 70% of citation review time with an attendance call-off tracker for 77 drivers that auto-calculates eligibility",
     ],
   },
   {
-    dates: "Jan 2025 – May 2025",
-    title: "Contract Developer",
-    org: "Client or Company · Remote",
+    company: "Uber",
+    role: "Technical Product Manager (Contract)",
+    location: "San Francisco, CA",
+    dates: "Feb 2025 – May 2025",
     points: [
-      "What the client needed and what you delivered.",
-      "The part you're proudest of.",
-    ],
-  },
-  {
-    dates: "Summer 2024",
-    title: "Role Title",
-    org: "Company Name · City, ST",
-    points: [
-      "A short, specific description of the work.",
-      "A skill you picked up that you still use.",
+      "Guided a team of 8 to pilot campus card proposals, hypothesizing data-driven use cases with 12 executive inputs",
+      "Uncovered 84% intent to order more with campus card support via 300+ surveys and 12 executive interviews",
+      "Projected a 15–25% increase in student order volume by modeling spending behavior across 35+ campus markets",
     ],
   },
 ];

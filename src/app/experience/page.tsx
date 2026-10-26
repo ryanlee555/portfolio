@@ -10,11 +10,13 @@ export default function Experience() {
       <h2 id="experience-title">Where I&apos;ve worked</h2>
       <div className="roles">
         {experience.map((role) => (
-          <article className="role" key={`${role.title}-${role.dates}`}>
+          <article className="role" key={`${role.company}-${role.dates}`}>
             <div className="mono">{role.dates}</div>
             <div>
-              <h3>{role.title}</h3>
-              <p className="org">{role.org}</p>
+              <h3>{role.company}</h3>
+              <p className="org">
+                {role.role} · {role.location}
+              </p>
               <ul>
                 {role.points.map((point) => (
                   <li key={point}>{point}</li>

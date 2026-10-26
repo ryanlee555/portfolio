@@ -44,9 +44,13 @@ Living handoff file. Read this first in any new chat. Update it at the end of ev
 
 - [x] New "Round the bases" descriptions from Ryan; lineup copy moved into `src/content/site.ts` (`lineup`) (pushed)
 
+- [x] Resume: `public/ryan-lee-resume.pdf` (copied from Ryan's resume), linked as "Resume ↗" in the header between the theme toggle and GitHub. Experience page filled from it: Cisco, Tesla, ServiceNow, PepsiCo, Uber (company as heading, role · location under it). (pushed)
+
 ## Next up
+- [ ] Theme toggle misbehaves on Home only (works on Projects/Interests). Not reproducible in headless Chrome or WebKit; suspect scrollable-page/scrollbar snapshot difference. Waiting on Ryan: does Experience (also scrolls) break too, which browser, and what exactly happens.
+- [ ] Projects page could be filled from the resume too (Grove, Speakeasy, Brain Alarm)
 - [ ] Message form delivery: create a free Formspree (or similar) form and set `NEXT_PUBLIC_FORM_ENDPOINT` (in `.env.local` and on the host). Until then, submitting opens the visitor's email app.
-- [ ] Replace sample content for Experience, Projects, Interests in `src/content/site.ts`
+- [ ] Replace sample content for Projects and Interests in `src/content/site.ts`
 - [ ] Look over the site in a normal browser at laptop size (`npm run dev`, http://localhost:3000) and note tweaks
 - [ ] Pick hosting and deploy (Vercel suggested)
 - [ ] Optional: resume link/PDF, project detail links, Open Graph image
@@ -72,3 +76,4 @@ Living handoff file. Read this first in any new chat. Update it at the end of ev
 - 2026-10-26: Theme-switch reveal moved to CSS keyframes so content appears with the wave (Safari-safe).
 - 2026-10-26: All field labels on hover; footer credit left, rights right, smaller.
 - 2026-10-26: New lineup descriptions.
+- 2026-10-26: Resume link in header; Experience filled from resume.
