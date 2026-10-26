@@ -228,8 +228,10 @@ html:not([data-intro="playing"]) .draw { animation: draw 1.2s cubic-bezier(.6, 0
 .stage:is(:hover, :has(:focus-visible), .peek) .base .bag { stroke-width: 1.4; }
 .base:hover .bag { fill: var(--ink); }
 .base:focus-visible .bag { stroke: var(--accent); stroke-width: 2.4; }
-.base .lbl { font: 500 10px var(--f-mono); fill: var(--ink); opacity: 0; transition: opacity .2s ease; pointer-events: none; }
-.base:hover .lbl, .base:focus-visible .lbl { opacity: 1; }
+/* all labels show once the field is grown; the one under the pointer brightens */
+.base .lbl { font: 500 10px var(--f-mono); fill: var(--muted); opacity: 0; transition: opacity .2s ease, fill .2s ease; pointer-events: none; }
+.stage:is(:hover, :has(:focus-visible)) .base .lbl { opacity: 1; transition-delay: .12s, 0s; }
+.base:hover .lbl, .base:focus-visible .lbl { fill: var(--ink); }
 
 /* penguin */
 .penguin, .penguin * { pointer-events: none; }
@@ -254,8 +256,9 @@ html:not([data-intro="playing"]) .draw { animation: draw 1.2s cubic-bezier(.6, 0
 @keyframes hop { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-1.6px); } }
 @keyframes step { 0%, 50%, 100% { transform: translateY(0); } 25% { transform: translateY(-1.8px); } }
 
-.foot { display: flex; justify-content: center; text-align: center; padding-block: 44px 150px; border-top: 1px solid var(--line); }
-.foot p { margin: 0; display: grid; gap: 2px; font: 400 1.125rem/1.35 var(--f-body); }
+.foot { display: flex; justify-content: space-between; align-items: start; gap: 24px; padding-block: 36px 160px; border-top: 1px solid var(--line); }
+.foot p { margin: 0; display: grid; gap: 2px; font: 400 .875rem/1.4 var(--f-body); }
+.foot .rights { text-align: right; }
 .foot .dim { color: var(--muted); }
 
 /* 0 to 100 loader, shown once per browser session */

@@ -40,6 +40,8 @@ Living handoff file. Read this first in any new chat. Update it at the end of ev
 
 - [x] Theme switch reveal reworked (pushed): feathered circle edge driven by a plain CSS `@keyframes` on `::view-transition-new(root)` (was a JS `animate()` call, which likely no-ops in Safari, causing the "blink at the end" the user saw). Verified frame-by-frame in headless Chrome that content transitions with the wave. Confirmed working in the user's browser.
 
+- [x] Field shows all four base labels whenever it's hovered (the base under the pointer brightens); footer split into "designed and developed by / Ryan Lee" (bottom left) and "all rights reserved, / ryan lee ©2026" (bottom right) at a smaller size (pushed)
+
 ## Next up
 - [ ] Message form delivery: create a free Formspree (or similar) form and set `NEXT_PUBLIC_FORM_ENDPOINT` (in `.env.local` and on the host). Until then, submitting opens the visitor's email app.
 - [ ] Replace sample content for Experience, Projects, Interests in `src/content/site.ts`
@@ -66,3 +68,4 @@ Living handoff file. Read this first in any new chat. Update it at the end of ev
 - 2026-10-26: Home page content, portrait, contact form, custom cursor; pushed.
 - 2026-10-26: Theme toggle, duck easter egg, footer, dock hover fix (laptop crashed mid-session; work intact); pushed.
 - 2026-10-26: Theme-switch reveal moved to CSS keyframes so content appears with the wave (Safari-safe).
+- 2026-10-26: All field labels on hover; footer credit left, rights right, smaller.

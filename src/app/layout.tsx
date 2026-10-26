@@ -68,6 +68,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <main>{children}</main>
           <footer className="foot">
             <p>
+              <span className="dim">designed and developed by</span>
+              <span>{profile.name}</span>
+            </p>
+            <p className="rights">
               <span>all rights reserved,</span>
               <span className="dim">
                 {profile.name.toLowerCase()} ©{profile.copyrightYear}
