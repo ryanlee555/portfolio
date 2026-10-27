@@ -52,7 +52,7 @@ Living handoff file. Read this first in any new chat. Update it at the end of ev
 ## Next up
 - [ ] **Theme toggle misbehaves on Home only** (fine on Projects/Interests). Could not reproduce in headless Chrome or WebKit (Playwright); the wave runs on Home there. Leading suspect: Home scrolls and the short pages don't (scrollbar affects the snapshot). Waiting on Ryan: does Experience (also scrolls) break too, which browser, and what exactly he sees.
 - [ ] Fill Interests: the third pillar. Ryan to review the song reasons (drafted in his voice)
-- [ ] Message form delivery: Ryan creates a free Formspree form and shares the URL; set `NEXT_PUBLIC_FORM_ENDPOINT` in `.env.local` and on the host. Until then, submitting opens the visitor's email app.
+- [ ] Deploy: add `NEXT_PUBLIC_FORM_ENDPOINT=https://formspree.io/f/xljjbvkb` to the host's environment variables (it is in local `.env.local`, which git ignores); otherwise the live form falls back to mailto
 - [ ] Deploy (Vercel suggested; connects straight to the GitHub repo)
 - [ ] Optional: project detail links, Open Graph/share image
 
@@ -132,3 +132,5 @@ Living handoff file. Read this first in any new chat. Update it at the end of ev
 - 2026-10-27: Footer's extra bottom padding (reserved for the old bottom-right dock) trimmed from 160px to 40px. Not committed.
 - 2026-10-27: "top-right corner" bolded in the About paragraph. Not committed.
 - 2026-10-27: "0 to 1" bolded in the looking paragraph. Not committed.
+- 2026-10-27: Formspree form set up (`.env.local`); Formspree accepted a test POST. Ryan to confirm the test email arrived.
+- 2026-10-27: Ryan confirmed a real form submission arrives (scripted tests had landed in Formspree's Spam tab). Form works locally; host still needs NEXT_PUBLIC_FORM_ENDPOINT at deploy.
