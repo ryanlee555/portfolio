@@ -165,7 +165,13 @@ export type ProjectDetail = {
   repo?: string;
   meta: { label: string; value: string }[];
   why: string[]; // one string per paragraph
-  sections: { title: string; body: string; shots?: Shot[]; options?: { name: string; blurb: string }[] }[];
+  sections: {
+    title: string;
+    body: string;
+    shots?: Shot[];
+    demo?: "arc-slider"; // a live, draggable component shown beside the shots
+    options?: { name: string; blurb: string }[];
+  }[];
   built: { layer: string; tech: string }[];
 };
 
@@ -199,7 +205,7 @@ export const projects: Project[] = [
       why: [
         "I'm a broke college student who got tired of having no idea where my money was going. My bank would show me a long list of transactions and call it a day, but that wasn't enough. I wanted to actually see it: where is my money really going every month?",
         "So I built Grove, a clean, simple, and transparent tool that shows exactly where your money goes, so you can budget with a clearer head. It started as a way to make sense of my own spending and turned into something I use every week.",
-        "If you're a student, a young professional, or anyone who wants more clarity on their finances without the overwhelm, Grove was made for you.",
+        "If you're a student, a young professional, or anyone who wants more clarity on their finances, Grove was made for you.",
       ],
       sections: [
         {
@@ -209,11 +215,11 @@ export const projects: Project[] = [
         },
         {
           title: "Budgets",
-          body: "Set a monthly limit for each category and see at a glance what's on track and what's over. Limits are set with a custom SVG arc slider: drag to set, snap to $50, with an amber warning past 80%.",
+          body: "Set a monthly limit for each category and see at a glance what's on track and what's over. Limits are set with a custom SVG arc slider: drag to set, snap to $50, with an amber warning past 80%. Try it on the right.",
           shots: [
             { src: groveBudgets, alt: "Grove budgets page with totals and a card per category" },
-            { src: groveBudgetEditor, alt: "Arc slider budget editor" },
           ],
+          demo: "arc-slider",
         },
         {
           title: "Hamilton AI",

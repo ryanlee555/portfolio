@@ -245,7 +245,38 @@ a.card:hover .proj-inset { transform: translateY(-22px) rotate(0deg); box-shadow
 .proj-text p { margin: 0; max-width: none; text-wrap: pretty; hyphens: manual; }
 .proj-shots { display: grid; gap: 16px; margin-top: 8px; }
 .proj-shots.two { grid-template-columns: minmax(0, 2.1fr) minmax(0, 1fr); }
-.proj-shots.two .shot img { height: 100%; object-fit: cover; object-position: top; }
+.proj-shots.two { align-items: start; }
+/* live Grove budget editor (ArcSlider): Grove's own palette in both themes */
+/* Beside a screenshot the card takes the screenshot's height (absolutely placed, so it never sets the row);
+   the arc shrinks to fit. Stacked on mobile it sizes normally. */
+.arc-wrap { position: relative; min-width: 0; }
+.proj-shots.two .arc-wrap { align-self: stretch; }
+.proj-shots.two .arc-card { position: absolute; inset: 0; }
+.arc-card { display: flex; flex-direction: column; gap: 8px; padding: 16px 18px; overflow: hidden; background: #FBFAF6; color: #1F2A22; border: 1px solid #D3DCD3; border-radius: 16px; min-width: 0; }
+.arc-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.arc-cat { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 1.05rem; }
+.arc-cat i { width: 9px; height: 9px; border-radius: 50%; background: #5E6B3A; }
+.arc-remove { font: inherit; font-size: .9rem; color: #B23A34; background: none; border: 0; padding: 0; cursor: pointer; transition: opacity .2s ease; }
+.arc-remove:disabled { opacity: .4; cursor: default; }
+.arc-svg { display: block; width: 100%; height: auto; flex: 1 1 0; min-height: 0; touch-action: none; user-select: none; cursor: pointer; }
+.arc-svg path { transition: stroke .3s ease; }
+.arc-amount { font-size: 38px; font-weight: 700; fill: #1F2A22; letter-spacing: -0.02em; }
+.arc-sub, .arc-end { font-size: 13px; fill: #5F7A66; }
+.arc-knob { cursor: grab; outline: none; }
+.arc-knob circle { transition: r .2s ease, stroke-width .2s ease; }
+.arc-knob:hover circle, .arc-svg:active .arc-knob circle { r: 23; }
+.arc-knob:focus-visible circle { stroke: #2E5A3B; stroke-width: 7; }
+.arc-svg:active .arc-knob { cursor: grabbing; }
+.arc-foot { display: flex; justify-content: space-between; gap: 12px; font-size: .92rem; color: #5F7A66; margin-top: 2px; }
+.arc-status { font-weight: 600; }
+.arc-status.over { color: #B23A34; }
+.arc-status.warn { color: #B7861A; }
+.arc-status.ok { color: #3F7A4E; }
+.arc-btn { font: inherit; font-weight: 600; font-size: .95rem; text-align: center; padding: 10px; border-radius: 10px; cursor: pointer; transition: transform .2s ease, filter .2s ease; }
+.arc-btn:hover { transform: translateY(-1px); filter: brightness(1.05); }
+.arc-btn:active { transform: translateY(0); }
+.arc-btn.confirm { margin-top: 2px; background: #4A7A57; color: #fff; border: 1px solid #4A7A57; }
+.arc-btn.cancel { background: #F8E9E8; color: #9A2F2A; border: 1px solid #E0A3A0; }
 .styles { list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 8px 0 0; padding: 0; }
 .styles li { display: grid; gap: 6px; align-content: start; padding: 16px 18px; border: 1px solid var(--line); border-radius: 8px; transition: border-color .2s ease, transform .25s ease; }
 .styles li:hover { border-color: var(--ink); transform: translateY(-2px); }
@@ -351,6 +382,7 @@ html[data-intro="done"] #loader { transform: translateY(-100%); visibility: hidd
   .role-photos { height: 14rem; margin: 14px 0 0; }
   .things { grid-template-columns: minmax(0, 1fr); }
   .grid, .proj-meta, .proj-sec, .proj-shots.two, .styles { grid-template-columns: minmax(0, 1fr); }
+  .proj-shots.two .arc-card { position: static; }
   .proj-sec { padding: 36px 0; }
   .board { padding: 24px 20px 28px; }
   .board-body { grid-template-columns: minmax(0, 1fr); gap: 48px; }

@@ -35,7 +35,7 @@ Living handoff file. Read this first in any new chat. Update it at the end of ev
 
 **Projects (`/projects`)**
 - Cards are two columns wide (two per row, one on mobile): screenshot stage on top (cover + floating inset, both lift on hover), then name, summary, stack
-- Grove is real and links to its detail page `/projects/grove` (`src/app/projects/[slug]/page.tsx`, data in `projects[].detail` in `site.ts`): live site + GitHub buttons, role/stack/status, hero shot, Why I built it, Spending overview, Budgets, Hamilton AI (six style cards, from Ryan's settings screen), How it's built. Section paragraphs run the full content width, to the screenshots' right edge
+- Grove is real and links to its detail page `/projects/grove` (`src/app/projects/[slug]/page.tsx`, data in `projects[].detail` in `site.ts`): live site + GitHub buttons, role/stack/status, hero shot, Why I built it, Spending overview, Budgets, Budgets has a live, draggable copy of Grove's arc slider (`src/components/ArcSlider.tsx`, DM Sans, Grove's palette in both themes; snaps to $50, amber past 80%, Confirm/Cancel/Remove limit, arrow keys), Hamilton AI (six style cards, from Ryan's settings screen), How it's built. Section paragraphs run the full content width, to the screenshots' right edge
 - Screenshots in `src/assets/projects/grove/` (cropped from Ryan's shots; landing page "how it works" crop saved but unused)
 - Speakeasy and Brain Alarm are placeholders ("Write-up coming soon")
 - Dock treats `/projects/<slug>` as 2B; clicking 2B there goes back to `/projects`
@@ -85,3 +85,6 @@ Living handoff file. Read this first in any new chat. Update it at the end of ev
 - 2026-10-26: Projects page rebuilt as two-column cards; Grove card and `/projects/grove` detail page built from Ryan's screenshots and README. Uncommitted.
 - 2026-10-26: Ryan confirmed the Grove repo is public; GitHub button stays.
 - 2026-10-26: Grove page: removed What's next; Hamilton AI shows the six styles (incl. Lin-Manuel) as cards; paragraphs widened to the screenshot edge. Uncommitted.
+- 2026-10-26: Grove: Why I built it paragraph shortened; interactive arc slider replaces the budget editor screenshot. Uncommitted.
+- 2026-10-26: Dock's arrow-key navigation now ignores keys a slider already used.
+- 2026-10-26: Arc slider card now matches the budgets screenshot's height (absolutely placed in the row; arc scales to fit).

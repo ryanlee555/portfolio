@@ -110,7 +110,8 @@ export default function Dock() {
     const onKey = (e: KeyboardEvent) => {
       if (document.documentElement.dataset.intro === "playing") return;
       if (e.metaKey || e.ctrlKey || e.altKey) return;
-      if (e.target instanceof Element && e.target.closest("input, textarea, select, [contenteditable]")) return;
+      if (e.defaultPrevented) return; // a control (like a slider) already used the key
+      if (e.target instanceof Element && e.target.closest('input, textarea, select, [contenteditable], [role="slider"]')) return;
       if (e.key === "ArrowRight") go((posRef.current + 1) % 4);
       if (e.key === "ArrowLeft") go((posRef.current + 3) % 4);
     };

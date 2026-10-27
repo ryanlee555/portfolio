@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
+import ArcSlider from "@/components/ArcSlider";
 import { projects } from "@/content/site";
 
 function findProject(slug: string) {
@@ -97,13 +98,14 @@ async function ProjectBody({ params }: { params: PageProps<"/projects/[slug]">["
                 ))}
               </ul>
             )}
-            {sec.shots && (
-              <div className={`proj-shots${sec.shots.length > 1 ? " two" : ""}`}>
-                {sec.shots.map((s) => (
+            {(sec.shots || sec.demo) && (
+              <div className={`proj-shots${(sec.shots?.length ?? 0) + (sec.demo ? 1 : 0) > 1 ? " two" : ""}`}>
+                {sec.shots?.map((s) => (
                   <figure className="shot" key={s.alt}>
                     <Image src={s.src} alt={s.alt} sizes="(max-width: 860px) 100vw, 900px" />
                   </figure>
                 ))}
+                {sec.demo === "arc-slider" && <ArcSlider />}
               </div>
             )}
           </div>
