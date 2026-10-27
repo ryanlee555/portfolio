@@ -33,11 +33,18 @@ Living handoff file. Read this first in any new chat. Update it at the end of ev
 - Photos in a right column, overlapping and tilted, lift on hover; absolutely placed so they never change a section's height (`photos` on a role in `site.ts`, files in `src/assets/photos/`): all five roles have 2 each (the branded photo is first = in front); other roles can get theirs the same way. Stacks under the text on mobile
 - Numbers in bullets auto-bolded (`BoldNumbers`); bullets ~60 characters a line, left-aligned with balanced wrapping, never hyphenated
 
-**Projects (`/projects`) and Interests (`/interests`)** — still sample placeholder content
+**Projects (`/projects`)**
+- Cards are two columns wide (two per row, one on mobile): screenshot stage on top (cover + floating inset, both lift on hover), then name, summary, stack
+- Grove is real and links to its detail page `/projects/grove` (`src/app/projects/[slug]/page.tsx`, data in `projects[].detail` in `site.ts`): live site + GitHub buttons, role/stack/status, hero shot, Why I built it, Spending overview, Budgets, Hamilton AI (six style cards, from Ryan's settings screen), How it's built. Section paragraphs run the full content width, to the screenshots' right edge
+- Screenshots in `src/assets/projects/grove/` (cropped from Ryan's shots; landing page "how it works" crop saved but unused)
+- Speakeasy and Brain Alarm are placeholders ("Write-up coming soon")
+- Dock treats `/projects/<slug>` as 2B; clicking 2B there goes back to `/projects`
+
+**Interests (`/interests`)** — still sample placeholder content
 
 ## Next up
 - [ ] **Theme toggle misbehaves on Home only** (fine on Projects/Interests). Could not reproduce in headless Chrome or WebKit (Playwright); the wave runs on Home there. Leading suspect: Home scrolls and the short pages don't (scrollbar affects the snapshot). Waiting on Ryan: does Experience (also scrolls) break too, which browser, and what exactly he sees.
-- [ ] Fill Projects from the resume: Grove (React, Supabase, TypeScript, Vercel), Speakeasy (JavaScript, IndexedDB, MediaRecorder API), Brain Alarm (SQL, Figma, A/B testing). Ask Ryan for links.
+- [ ] Projects: Speakeasy (JavaScript, IndexedDB, MediaRecorder API) and Brain Alarm (SQL, Figma, A/B testing) need write-ups, screenshots, links.
 - [ ] Fill Interests (baseball first, plus working out, music; ask Ryan for details)
 - [ ] Message form delivery: Ryan creates a free Formspree form and shares the URL; set `NEXT_PUBLIC_FORM_ENDPOINT` in `.env.local` and on the host. Until then, submitting opens the visitor's email app.
 - [ ] Deploy (Vercel suggested; connects straight to the GitHub repo)
@@ -74,3 +81,7 @@ Living handoff file. Read this first in any new chat. Update it at the end of ev
 - 2026-10-26: Added Cisco and Tesla photos (branded photo in front, as with Uber/PepsiCo). Uncommitted.
 - 2026-10-26: Tesla photo restored to the original file; optional per-photo `position` (CSS object-position) in `site.ts`, Tesla uses 100% 50% so the whole wordmark shows with more of the building.
 - 2026-10-26: Added ServiceNow photos (building sign in front). All roles now have photos. Uncommitted.
+- 2026-10-26: Lineup About line now reads "You're already here, thanks for visiting!". Uncommitted.
+- 2026-10-26: Projects page rebuilt as two-column cards; Grove card and `/projects/grove` detail page built from Ryan's screenshots and README. Uncommitted.
+- 2026-10-26: Ryan confirmed the Grove repo is public; GitHub button stays.
+- 2026-10-26: Grove page: removed What's next; Hamilton AI shows the six styles (incl. Lin-Manuel) as cards; paragraphs widened to the screenshot edge. Uncommitted.

@@ -16,6 +16,10 @@ import pepsicoPhoto2 from "@/assets/photos/pepsico-2.webp";
 import uberPhoto1 from "@/assets/photos/uber-1.webp";
 import uberPhoto2 from "@/assets/photos/uber-2.webp";
 import uber from "@/assets/logos/uber.png";
+import groveBudgetEditor from "@/assets/projects/grove/budget-editor.webp";
+import groveBudgets from "@/assets/projects/grove/budgets.webp";
+import groveDashboard from "@/assets/projects/grove/dashboard.webp";
+import groveHero from "@/assets/projects/grove/hero.webp";
 
 // All site copy lives here. Edit this file to change what the pages say.
 // Entries marked "sample" are placeholders to replace with real content.
@@ -35,7 +39,7 @@ export const profile = {
 
 // The "Round the bases" list on Home: one line per page.
 export const lineup = {
-  about: "You're here right now, get to know me a little!",
+  about: "You're already here, thanks for visiting!",
   experience: "Roles I've held and what I accomplished in each one",
   projects: "Everything I've built and my lessons along the way",
   interests: "I'm not that boring, I have hobbies too!",
@@ -154,34 +158,97 @@ export const experience: Role[] = [
   },
 ];
 
+type Shot = { src: StaticImageData; alt: string };
+
+export type ProjectDetail = {
+  live?: string;
+  repo?: string;
+  meta: { label: string; value: string }[];
+  why: string[]; // one string per paragraph
+  sections: { title: string; body: string; shots?: Shot[]; options?: { name: string; blurb: string }[] }[];
+  built: { layer: string; tech: string }[];
+};
+
 export type Project = {
+  slug: string;
   name: string;
   summary: string;
   stack: string[];
-  href?: string;
+  cover?: Shot; // card image; a second, smaller one floats over it
+  inset?: Shot;
+  detail?: ProjectDetail; // projects with a detail page at /projects/[slug]
 };
 
-// sample
 export const projects: Project[] = [
   {
-    name: "Project One",
-    summary: "Two sentences on what it does, who it's for, and why you built it.",
-    stack: ["React", "Node", "Postgres"],
+    slug: "grove",
+    name: "Grove",
+    summary:
+      "A personal full-stack finance and budgeting app. It links to real bank accounts and turns raw transactions into a clear picture of where my money goes.",
+    stack: ["React", "Supabase", "TypeScript", "Vercel"],
+    cover: { src: groveHero, alt: "Grove landing page: Grow your savings, naturally" },
+    inset: { src: groveBudgetEditor, alt: "Grove budget editor with an arc slider set to $150" },
+    detail: {
+      live: "https://grovee.vercel.app/",
+      repo: "https://github.com/ryanlee555/Grove",
+      meta: [
+        { label: "Role", value: "Solo, full stack" },
+        { label: "Built with", value: "React, Supabase, TypeScript, Vercel" },
+        { label: "Status", value: "Live, used every week" },
+      ],
+      why: [
+        "I'm a broke college student who got tired of having no idea where my money was going. My bank would show me a long list of transactions and call it a day, but that wasn't enough. I wanted to actually see it: where is my money really going every month?",
+        "So I built Grove, a clean, simple, and transparent tool that shows exactly where your money goes, so you can budget with a clearer head. It started as a way to make sense of my own spending and turned into something I use every week.",
+        "If you're a student, a young professional, or anyone who wants more clarity on their finances without the overwhelm, Grove was made for you.",
+      ],
+      sections: [
+        {
+          title: "Spending overview",
+          body: "Grove syncs live transactions from my SoFi and Chase accounts through Plaid. The dashboard breaks spending down by category or by card with an interactive donut chart, weekly trends, and a sortable transaction table. Edits like recategorizing or deleting a transaction are saved against Plaid's stable IDs, so they survive every future sync.",
+          shots: [{ src: groveDashboard, alt: "Grove dashboard with total spent, a category donut chart, transactions, and weekly trends" }],
+        },
+        {
+          title: "Budgets",
+          body: "Set a monthly limit for each category and see at a glance what's on track and what's over. Limits are set with a custom SVG arc slider: drag to set, snap to $50, with an amber warning past 80%.",
+          shots: [
+            { src: groveBudgets, alt: "Grove budgets page with totals and a card per category" },
+            { src: groveBudgetEditor, alt: "Arc slider budget editor" },
+          ],
+        },
+        {
+          title: "Hamilton AI",
+          body: "A slide-in assistant built on Claude that knows my transaction history and monthly spending, so I can just ask where my money went. It answers in whichever of six styles I pick.",
+          options: [
+            { name: "Default", blurb: "Balanced and friendly, like a knowledgeable friend." },
+            { name: "Concise", blurb: "Short and direct. No fluff, just the numbers." },
+            { name: "Detailed", blurb: "Deep dives with full breakdowns and context." },
+            { name: "Hype", blurb: "Enthusiastic and encouraging about every win." },
+            { name: "Roast", blurb: "Brutally honest about your spending. No filter." },
+            { name: "Lin-Manuel 🎭", blurb: "Hamilton the musical energy: rise up, not throwing away your shot." },
+          ],
+        },
+      ],
+      built: [
+        { layer: "Frontend", tech: "React + Vite, React Router" },
+        { layer: "Backend", tech: "Supabase: Postgres, Edge Functions (Deno, TypeScript), Storage" },
+        { layer: "Bank data", tech: "Plaid API" },
+        { layer: "AI", tech: "Anthropic API (Claude Haiku) through an Edge Function" },
+        { layer: "Hosting", tech: "Vercel, deploys on every push to main" },
+      ],
+    },
+  },
+  // sample: real write-ups coming
+  {
+    slug: "speakeasy",
+    name: "Speakeasy",
+    summary: "Write-up coming soon.",
+    stack: ["JavaScript", "IndexedDB", "MediaRecorder API"],
   },
   {
-    name: "Project Two",
-    summary: "Two sentences on what it does, who it's for, and why you built it.",
-    stack: ["Python", "FastAPI"],
-  },
-  {
-    name: "Project Three",
-    summary: "Two sentences on what it does, who it's for, and why you built it.",
-    stack: ["TypeScript", "Next.js"],
-  },
-  {
-    name: "Project Four",
-    summary: "Two sentences on what it does, who it's for, and why you built it.",
-    stack: ["Swift", "SwiftUI"],
+    slug: "brain-alarm",
+    name: "Brain Alarm",
+    summary: "Write-up coming soon.",
+    stack: ["SQL", "Figma", "A/B testing"],
   },
 ];
 

@@ -69,7 +69,12 @@ export default function Dock() {
   // pointer leaves. Picked from anywhere else: the penguin waddles in the small dock.
   const go = useCallback(
     async (target: number, fromDock = false) => {
-      if (busyRef.current || target === posRef.current) return;
+      if (busyRef.current) return;
+      // Already on this base but deeper in it (like /projects/grove): just go back up.
+      if (target === posRef.current) {
+        if (window.location.pathname !== BASES[target].path) router.push(BASES[target].path);
+        return;
+      }
       busyRef.current = true;
       const stage = stageRef.current;
       if (fromDock) stage?.classList.add("peek");

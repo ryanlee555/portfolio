@@ -19,7 +19,8 @@ export const BASES: Base[] = [
 
 export function baseIndexForPath(pathname: string): number {
   const clean = pathname.length > 1 ? pathname.replace(/\/$/, "") : pathname;
-  return BASES.findIndex((b) => b.path === clean);
+  // Subpages (like /projects/grove) belong to their base.
+  return BASES.findIndex((b) => b.path === clean || (b.path !== "/" && clean.startsWith(`${b.path}/`)));
 }
 
 // Fired by links outside the dock so the penguin runs before the page changes.
