@@ -5,6 +5,16 @@ import servicenowDark from "@/assets/logos/servicenow-dark.png";
 import servicenow from "@/assets/logos/servicenow.png";
 import tesla from "@/assets/logos/tesla.png";
 import uberDark from "@/assets/logos/uber-dark.png";
+import ciscoPhoto1 from "@/assets/photos/cisco-1.webp";
+import ciscoPhoto2 from "@/assets/photos/cisco-2.webp";
+import teslaPhoto1 from "@/assets/photos/tesla-1.webp";
+import teslaPhoto2 from "@/assets/photos/tesla-2.webp";
+import servicenowPhoto1 from "@/assets/photos/servicenow-1.webp";
+import servicenowPhoto2 from "@/assets/photos/servicenow-2.webp";
+import pepsicoPhoto1 from "@/assets/photos/pepsico-1.webp";
+import pepsicoPhoto2 from "@/assets/photos/pepsico-2.webp";
+import uberPhoto1 from "@/assets/photos/uber-1.webp";
+import uberPhoto2 from "@/assets/photos/uber-2.webp";
 import uber from "@/assets/logos/uber.png";
 
 // All site copy lives here. Edit this file to change what the pages say.
@@ -50,6 +60,7 @@ export type Role = {
   location: string;
   dates: string;
   points: string[];
+  photos?: { src: StaticImageData; alt: string; position?: string }[]; // shown in the right column
 };
 
 // From the resume (public/ryan-lee-resume.pdf), newest first.
@@ -58,6 +69,10 @@ export const experience: Role[] = [
     company: "Cisco",
     logo: cisco,
     logoHeight: 68,
+    photos: [
+      { src: ciscoPhoto1, alt: "Ryan standing next to the Cisco sign" },
+      { src: ciscoPhoto2, alt: "Team dinner around a long restaurant table" },
+    ],
     role: "AI Product Management Intern",
     location: "San Jose, CA",
     dates: "Jun 2026 – Sep 2026",
@@ -71,6 +86,10 @@ export const experience: Role[] = [
     company: "Tesla",
     logo: tesla,
     logoHeight: 84,
+    photos: [
+      { src: teslaPhoto1, alt: "Tesla office entrance with the Tesla wordmark", position: "100% 50%" },
+      { src: teslaPhoto2, alt: "Ryan sitting in front of a large metal wolf sculpture" },
+    ],
     role: "Technical Program Management Intern",
     location: "Palo Alto, CA",
     dates: "Jan 2026 – Apr 2026",
@@ -85,6 +104,10 @@ export const experience: Role[] = [
     logo: servicenow,
     logoDark: servicenowDark,
     logoHeight: 26,
+    photos: [
+      { src: servicenowPhoto1, alt: "ServiceNow office building with the ServiceNow sign" },
+      { src: servicenowPhoto2, alt: "Group dressed up at an evening event under a lit tree" },
+    ],
     role: "Product Manager (Contract)",
     location: "San Francisco, CA",
     dates: "Sep 2025 – Dec 2025",
@@ -98,6 +121,10 @@ export const experience: Role[] = [
     company: "PepsiCo",
     logo: pepsico,
     logoHeight: 88,
+    photos: [
+      { src: pepsicoPhoto1, alt: "PepsiCo and Frito-Lay sign on an office wall" },
+      { src: pepsicoPhoto2, alt: "Chester Cheetah mascot head with oversized glasses" },
+    ],
     role: "Supply Chain Intern",
     location: "Bakersfield, CA",
     dates: "Jun 2025 – Aug 2025",
@@ -112,6 +139,10 @@ export const experience: Role[] = [
     logo: uber,
     logoDark: uberDark,
     logoHeight: 38,
+    photos: [
+      { src: uberPhoto1, alt: "Uber sign in the Mission Bay office lobby" },
+      { src: uberPhoto2, alt: "The team standing under an Uber welcome banner" },
+    ],
     role: "Technical Product Manager (Contract)",
     location: "San Francisco, CA",
     dates: "Feb 2025 – May 2025",

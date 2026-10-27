@@ -38,6 +38,13 @@ export default function Experience() {
                 ))}
               </ul>
             </div>
+            {role.photos && (
+              <div className="role-photos">
+                {role.photos.map((photo) => (
+                  <Image key={photo.alt} src={photo.src} alt={photo.alt} sizes="240px" style={{ objectPosition: photo.position }} />
+                ))}
+              </div>
+            )}
           </article>
         ))}
       </div>

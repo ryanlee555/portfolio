@@ -171,13 +171,23 @@ html.has-cursor, html.has-cursor * { cursor: none !important; }
 
 /* experience */
 .roles { margin: 48px 0 0; border-top: 1px solid var(--line); }
-.role { display: grid; grid-template-columns: 11rem minmax(0, 1fr); gap: 8px 40px; padding: 30px 0; border-bottom: 1px solid var(--line); }
+.role { display: grid; grid-template-columns: 11rem minmax(0, 1fr) 17rem; gap: 8px 40px; padding: 30px 0; border-bottom: 1px solid var(--line); }
 .role-side { display: grid; gap: 16px; align-content: start; justify-items: start; }
 /* Logos sit straight on the page. Dark logos (Uber, ServiceNow) have a light twin for dark mode. */
 .role-logo { display: flex; align-items: center; margin-top: 4px; }
 .role-logo img { display: block; width: auto; height: 100%; max-width: 180px; object-fit: contain; }
 .role-logo .logo-on-light, :root[data-theme="light"] .role-logo .logo-on-dark { display: none; }
 :root[data-theme="light"] .role-logo .logo-on-light { display: block; }
+/* Photos overlap and fill the row's height without adding to it (absolutely placed, so they never stretch the section). */
+.role-photos { position: relative; min-height: 0; margin-left: -7rem; }
+.role-photos img {
+  position: absolute; width: 55%; height: 86%; object-fit: cover; border-radius: 6px;
+  box-shadow: 0 6px 18px rgb(0 0 0 / .22);
+  transition: transform .35s cubic-bezier(.3, 0, .2, 1), box-shadow .35s ease;
+}
+.role-photos img:nth-child(1) { top: 0; left: 0; transform: rotate(-2deg); z-index: 2; }
+.role-photos img:nth-child(2) { bottom: 0; right: 0; transform: rotate(2.5deg); z-index: 1; }
+.role-photos img:hover { transform: translateY(-6px) rotate(0deg) scale(1.05); box-shadow: 0 12px 28px rgb(0 0 0 / .3); z-index: 3; }
 .role h3 { font: 600 1.5rem/1.2 var(--f-display); letter-spacing: -0.015em; margin: 0; }
 .role .org { color: var(--muted); margin: 4px 0 0; }
 .role ul { margin: 14px 0 0; padding-left: 1.1em; max-width: 30em; }
@@ -287,6 +297,7 @@ html[data-intro="done"] #loader { transform: translateY(-100%); visibility: hidd
   body { padding-inline: 16px; }
   .home-top { grid-template-columns: minmax(0, 1fr); gap: 40px; }
   .role { grid-template-columns: minmax(0, 1fr); gap: 6px; }
+  .role-photos { height: 14rem; margin: 14px 0 0; }
   .things { grid-template-columns: minmax(0, 1fr); }
   .board { padding: 24px 20px 28px; }
   .board-body { grid-template-columns: minmax(0, 1fr); gap: 48px; }

@@ -30,6 +30,7 @@ Living handoff file. Read this first in any new chat. Update it at the end of ev
 **Experience (`/experience`)** — real content from the resume
 - Cisco, Tesla, ServiceNow, PepsiCo, Uber; company heading, role · location, dates
 - Company logos under the dates (`src/assets/logos/`), no tiles, per-logo `logoHeight`; Uber and ServiceNow swap to light `-dark.png` versions in dark mode
+- Photos in a right column, overlapping and tilted, lift on hover; absolutely placed so they never change a section's height (`photos` on a role in `site.ts`, files in `src/assets/photos/`): all five roles have 2 each (the branded photo is first = in front); other roles can get theirs the same way. Stacks under the text on mobile
 - Numbers in bullets auto-bolded (`BoldNumbers`); bullets ~60 characters a line, left-aligned with balanced wrapping, never hyphenated
 
 **Projects (`/projects`) and Interests (`/interests`)** — still sample placeholder content
@@ -65,3 +66,11 @@ Living handoff file. Read this first in any new chat. Update it at the end of ev
 - 2026-10-26: Theme reveal moved to CSS keyframes so content appears with the wave; confirmed working for Ryan except on Home.
 - 2026-10-26: Resume link; Experience filled from resume with logos, bold numbers, tidy line length.
 - 2026-10-26: Session wrap-up; progress.md and CLAUDE.md refreshed.
+- 2026-10-26: Added Uber and PepsiCo photos to Experience (right column). Uncommitted.
+- 2026-10-26: Experience photos now overlap with a hover lift and no longer affect section height. Uncommitted.
+- 2026-10-26: Experience photos enlarged to fill the row (17rem column, 72% x 86% frames); verified at 1280px that row heights are unchanged.
+- 2026-10-26: Experience photos spread wider (column bleeds 7rem left into the gap, frames 55% wide) to cover the empty space beside the text; mobile unchanged.
+- 2026-10-26: Logo photos (Uber sign, PepsiCo wall) now sit in front of the overlap.
+- 2026-10-26: Added Cisco and Tesla photos (branded photo in front, as with Uber/PepsiCo). Uncommitted.
+- 2026-10-26: Tesla photo restored to the original file; optional per-photo `position` (CSS object-position) in `site.ts`, Tesla uses 100% 50% so the whole wordmark shows with more of the building.
+- 2026-10-26: Added ServiceNow photos (building sign in front). All roles now have photos. Uncommitted.
