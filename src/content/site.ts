@@ -16,6 +16,14 @@ import pepsicoPhoto2 from "@/assets/photos/pepsico-2.webp";
 import uberPhoto1 from "@/assets/photos/uber-1.webp";
 import uberPhoto2 from "@/assets/photos/uber-2.webp";
 import uber from "@/assets/logos/uber.png";
+import homePhoto1 from "@/assets/home/photo-1.webp";
+import homePhoto2 from "@/assets/home/photo-2.webp";
+import homePhoto4 from "@/assets/home/photo-4.webp";
+import homePhoto5 from "@/assets/home/photo-5.webp";
+import homePhoto7 from "@/assets/home/photo-7.webp";
+import homePhoto8 from "@/assets/home/photo-8.webp";
+import homePhoto9 from "@/assets/home/photo-9.webp";
+import homePhoto10 from "@/assets/home/photo-10.webp";
 import groveBudgetEditor from "@/assets/projects/grove/budget-editor.webp";
 import groveBudgets from "@/assets/projects/grove/budgets.webp";
 import groveDashboard from "@/assets/projects/grove/dashboard.webp";
@@ -29,6 +37,33 @@ import speakeasyStudio from "@/assets/projects/speakeasy/studio.webp";
 
 // All site copy lives here. Edit this file to change what the pages say.
 // Entries marked "sample" are placeholders to replace with real content.
+
+// Home section between the lineup and the contact scoreboard. Draft wording, Ryan to edit.
+export const looking = {
+  eyebrow: "What I'm looking for",
+  text: "I'm looking for **product management** roles on a team building something people use every day, where I can pair my engineering and data background with real customer problems and ship from 0 to 1. If that sounds like your team, I'd love to talk :D",
+  facts: [
+    "Born on 5/5/2005",
+    "Ran a half marathon",
+    "Went skydiving",
+    "Saw Hamilton live on Broadway",
+    "Have a Malti-Zu named Bomi",
+    "Been to over 50 concerts/raves",
+    "Can do 12 muscle-ups",
+    "Won a spelling bee contest in 6th grade",
+  ],
+  // Photos beside the note, shown four across in this order.
+  photos: [
+    { src: homePhoto2, alt: "Ryan and friends stacked up in front of the Campanile" },
+    { src: homePhoto10, alt: "Bomi, Ryan's Malti-Zu, standing up to say hi" },
+    { src: homePhoto5, alt: "Ryan and friends on a boat at sunset in Hawaii" },
+    { src: homePhoto7, alt: "Ryan and friends biting their half marathon medals" },
+    { src: homePhoto1, alt: "Ryan and friends in a parking lot at dusk" },
+    { src: homePhoto4, alt: "Ryan walking toward the Tesla building" },
+    { src: homePhoto9, alt: "Ryan holding a South Korea flag at a soccer match" },
+    { src: homePhoto8, alt: "Ryan holding his skydiving jump certificate" },
+  ] as { src: StaticImageData; alt: string }[],
+};
 
 export const profile = {
   name: "Ryan Lee",

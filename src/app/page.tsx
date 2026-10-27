@@ -2,8 +2,9 @@ import Image from "next/image";
 import portrait from "@/assets/ryan.jpg";
 import BaseLink from "@/components/BaseLink";
 import Contact from "@/components/Contact";
+import PhotoGrid from "@/components/PhotoGrid";
 import RichText from "@/components/RichText";
-import { lineup, profile } from "@/content/site";
+import { lineup, looking, profile } from "@/content/site";
 
 const bases = [
   { index: 1, short: "1B", name: "Experience", desc: lineup.experience },
@@ -53,6 +54,21 @@ export default function Home() {
             ))}
           </ul>
         </div>
+      </div>
+      <div className="looking">
+        <div>
+          <p className="eyebrow">{looking.eyebrow}</p>
+          <p className="lede">
+            <RichText text={looking.text} />
+          </p>
+          <p className="eyebrow facts-title">Quick fun facts</p>
+          <ul className="facts">
+            {looking.facts.map((fact) => (
+              <li key={fact}>{fact}</li>
+            ))}
+          </ul>
+        </div>
+        <PhotoGrid photos={looking.photos} />
       </div>
       <Contact />
     </section>

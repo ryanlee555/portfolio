@@ -16,10 +16,10 @@
   --duck: #F7CD4A;
   --duck-wing: #E8B530;
   --duck-eye: #1B1A16;
-  --board: #17251D;
-  --board-ink: #E9EFE6;
-  --board-dim: #8FA096;
-  --board-line: #2B4234;
+  --board: #171B19;
+  --board-ink: #ECEDEE;
+  --board-dim: #9A9EA3;
+  --board-line: #28302C;
   --f-display: var(--font-display), "Helvetica Neue", Arial, sans-serif;
   --f-body: var(--font-body), "Helvetica Neue", Arial, sans-serif;
   --f-mono: var(--font-mono), ui-monospace, "SF Mono", Menlo, monospace;
@@ -35,8 +35,10 @@
   --dodger: #005A9C; /* the Dodgers' own blue */
   --beak: #E98A2A;
   --pline: transparent;
-  --board: #101A14;
-  --board-line: #263A2E;
+  --board: #E6E8E5;
+  --board-ink: #121A15;
+  --board-dim: #5B675F;
+  --board-line: #CBD0CA;
   color-scheme: light;
 }
 
@@ -98,6 +100,15 @@ h1, h2 { font-family: var(--f-display); text-wrap: balance; margin: 0; letter-sp
 h1 { font-size: clamp(3rem, 7vw, 5.6rem); }
 h2 { font-size: clamp(2.2rem, 4.6vw, 3.4rem); }
 .lede { font-size: 1.125rem; line-height: 1.65; max-width: 34em; margin: 18px 0 0; }
+.looking { margin-top: 72px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 72px; align-items: stretch; }
+.looking > div:first-child { display: flex; flex-direction: column; }
+.looking .lede { margin-top: 0; }
+.facts-title { margin: auto 0 10px; padding-top: 24px; }
+.facts { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px 14px; color: var(--ink); font-size: .875rem; line-height: 1.4; }
+.photo-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-template-rows: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.photo-cell { position: relative; min-height: 175px; border-radius: 6px; overflow: hidden; background: var(--line); transition: transform .3s ease; }
+.photo-cell img { object-fit: cover; object-position: 50% 35%; }
+.photo-cell:hover { transform: translateY(-3px); }
 .lede strong { font-weight: 600; }
 h1 + .lede { margin-top: 26px; }
 p { max-width: 36em; }
@@ -495,6 +506,7 @@ html[data-intro="done"] #loader { transform: translateY(-100%); visibility: hidd
 @media (max-width: 860px) {
   body { padding-inline: 16px; }
   .home-top { grid-template-columns: minmax(0, 1fr); gap: 40px; }
+  .looking { grid-template-columns: minmax(0, 1fr); gap: 32px; }
   .role { grid-template-columns: minmax(0, 1fr); gap: 6px; }
   .role-photos { height: 14rem; margin: 14px 0 0; }
   .things, .song-grid { grid-template-columns: minmax(0, 1fr); }

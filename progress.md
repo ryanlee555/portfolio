@@ -25,6 +25,7 @@ Living handoff file. Read this first in any new chat. Update it at the end of ev
 **Home (`/`)** — real content
 - Circle portrait (`src/assets/ryan.jpg`), "Hi, I'm Ryan!", two-paragraph intro with bold majors
 - "Round the bases" lineup with Ryan's own one-line descriptions
+- "What I'm looking for" note between the lineup and the scoreboard on the left half; the right half is a 4 by 2 grid of Ryan's photos (`src/components/PhotoGrid.tsx`, photos in `src/assets/home/`, listed in `looking.photos` in `site.ts`; the text top aligns with the grid top; photo frames stretch so the grid height always equals the text column. "Quick fun facts" (`looking.facts`, two columns) sit under the note). Ryan may swap in a rotating version later. Wording ends with ":D"
 - Contact scoreboard: "Let's connect." + email/phone with copy buttons (left), "Send a message" form (right)
 
 **Experience (`/experience`)** — real content from the resume
@@ -114,3 +115,14 @@ Living handoff file. Read this first in any new chat. Update it at the end of ev
 - 2026-10-27: Pinguball: batter picker (penguin, duck, lion, koala, turtle); game batter no longer turns into a duck on hover.
 - 2026-10-27: Session wrap-up: all work committed and pushed (latest ac3080b); progress.md tidied.
 - 2026-10-27: Dock penguin easter egg now randomizes between duck, lion, koala, turtle on each hover. Pick logic verified; not committed yet.
+- 2026-10-27: Home: added a draft "What I'm looking for" section above the contact scoreboard. Not committed.
+- 2026-10-27: Looking section: text ends with ":D", moved to the left half; right half is the photo rotator (awaiting photos). Not committed.
+- 2026-10-27: Contact scoreboard recolored from dark green to neutral charcoal (--board tokens in globals.css). Not committed.
+- 2026-10-27: Scoreboard made subtler: light mode is a soft gray panel with dark text, dark mode a slightly lighter panel than the page. Not committed.
+- 2026-10-27: Looking section photos: 8 of Ryan's photos in a tidy 4x2 grid (replaced the rotator, removed PhotoRotator). Not committed.
+- 2026-10-27: Looking section text now top aligned with the photo grid. Not committed.
+- 2026-10-27: Looking section: added Quick fun facts; swapped two photos (dog Bomi top 2nd, stadium bottom 3rd; old hill and Aloha photos left unused in `src/assets/home/`); photo frames now stretch to match the text height. Not committed.
+- 2026-10-27: Fun facts text now uses the main ink color (white in dark mode); heading stays muted. Not committed.
+- 2026-10-27: Fun fact changed to "Been to over 50 concerts/raves". Not committed.
+- 2026-10-27: Fun facts pinned to the bottom of the looking section (bottom lines match the photo grid); photo frames min height 175px so the gap above the facts grew. Not committed.
+- 2026-10-27: Added fun facts (12 muscle-ups, spelling bee); fact text slightly smaller so photos stay 175px tall. Not committed.
