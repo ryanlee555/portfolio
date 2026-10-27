@@ -12,6 +12,18 @@ const prefersReducedMotion = () => window.matchMedia("(prefers-reduced-motion: r
 const wait = (ms: number) => new Promise<void>((r) => setTimeout(r, prefersReducedMotion() ? 0 : ms));
 const standAt = (x: number, y: number) => `translate(${x} ${y + 3})`;
 
+// The visitor can tuck the dock away and bring it back from a tab on the right edge. The choice is
+// remembered, and the inline script in layout.tsx applies it before first paint so the dock never flashes.
+const setDockHidden = (hidden: boolean) => {
+  const root = document.documentElement;
+  if (hidden) root.dataset.dock = "hidden";
+  else delete root.dataset.dock;
+  try {
+    if (hidden) localStorage.setItem("dock", "hidden");
+    else localStorage.removeItem("dock");
+  } catch {}
+};
+
 export default function Dock() {
   const router = useRouter();
   const pathname = usePathname();
@@ -133,47 +145,64 @@ export default function Dock() {
 
   const start = BASES[startIndex];
 
+  const hide = () => {
+    stageRef.current?.querySelector<HTMLElement>(":focus")?.blur();
+    setDockHidden(true);
+  };
+
   return (
-    <nav className="stage" ref={stageRef} aria-label="Pages">
-      <p className="dock-hint" aria-hidden="true">
-        Click a base, or use the ← → keys
-      </p>
-      <svg viewBox="0 0 300 240">
-        <polygon className="infield" points="150,205 215,140 150,75 85,140" />
-        <path className="chalk draw foul" pathLength={1} d="M150 205 L262 93" />
-        <path className="chalk draw foul" pathLength={1} d="M150 205 L38 93" />
-        <path className="chalk draw" pathLength={1} d="M150 205 L215 140 L150 75 L85 140 Z" />
-        <circle className="mound" cx="150" cy="140" r="3.5" />
+    <>
+      <nav className="stage" ref={stageRef} aria-label="Pages">
+        <p className="dock-hint" aria-hidden="true">
+          Click a base, or use the ← → keys
+        </p>
+        <button type="button" className="dock-hide" aria-label="Hide the field" onClick={hide}>
+          <svg viewBox="0 0 12 12" aria-hidden="true">
+            <path d="M4.5 2.5 L8 6 L4.5 9.5" />
+          </svg>
+        </button>
+        <svg viewBox="0 0 300 240">
+          <polygon className="infield" points="150,205 215,140 150,75 85,140" />
+          <path className="chalk draw foul" pathLength={1} d="M150 205 L262 93" />
+          <path className="chalk draw foul" pathLength={1} d="M150 205 L38 93" />
+          <path className="chalk draw" pathLength={1} d="M150 205 L215 140 L150 75 L85 140 Z" />
+          <circle className="mound" cx="150" cy="140" r="3.5" />
 
-        {BASES.map((b, i) => (
-          <a
-            key={b.path}
-            href={b.path}
-            className="base"
-            aria-label={`${b.name}`}
-            aria-current={i === baseIndexForPath(pathname) ? "page" : undefined}
-            onClick={(e) => onBaseClick(e, i)}
-          >
-            <circle className="hit" cx={b.x} cy={b.y} r="26" />
-            {i === 0 ? (
-              <path className="bag" d="M-8 -5 H8 V2 L0 9 L-8 2 Z" transform={`translate(${b.x} ${b.y})`} />
-            ) : (
-              <rect
-                className="bag"
-                x="-6.5"
-                y="-6.5"
-                width="13"
-                height="13"
-                transform={`translate(${b.x} ${b.y}) rotate(45)`}
-              />
-            )}
-            <BaseLabel index={i} />
-          </a>
-        ))}
+          {BASES.map((b, i) => (
+            <a
+              key={b.path}
+              href={b.path}
+              className="base"
+              aria-label={`${b.name}`}
+              aria-current={i === baseIndexForPath(pathname) ? "page" : undefined}
+              onClick={(e) => onBaseClick(e, i)}
+            >
+              <circle className="hit" cx={b.x} cy={b.y} r="26" />
+              {i === 0 ? (
+                <path className="bag" d="M-8 -5 H8 V2 L0 9 L-8 2 Z" transform={`translate(${b.x} ${b.y})`} />
+              ) : (
+                <rect
+                  className="bag"
+                  x="-6.5"
+                  y="-6.5"
+                  width="13"
+                  height="13"
+                  transform={`translate(${b.x} ${b.y}) rotate(45)`}
+                />
+              )}
+              <BaseLabel index={i} />
+            </a>
+          ))}
 
-        <Penguin ref={penguinRef} transform={standAt(start.x, start.y)} />
-      </svg>
-    </nav>
+          <Penguin ref={penguinRef} transform={standAt(start.x, start.y)} />
+        </svg>
+      </nav>
+      <button type="button" className="dock-tab" aria-label="Show the field" onClick={() => setDockHidden(false)}>
+        <svg viewBox="0 0 20 20" aria-hidden="true">
+          <path d="M10 3 L17 10 L10 17 L3 10 Z" />
+        </svg>
+      </button>
+    </>
   );
 }
 

@@ -10,9 +10,9 @@ import type { Interest, Screen, Song } from "@/content/site";
 type Panel = NonNullable<Interest["opens"]>;
 
 const BUTTONS: Record<Panel, { open: string; close: string }> = {
-  songs: { open: "Click for songs ↓", close: "Hide songs ↑" },
+  songs: { open: "My repeats ↓", close: "Hide songs ↑" },
   game: { open: "Play ball ↓", close: "Hide game ↑" },
-  screen: { open: "Click for films ↓", close: "Hide films ↑" },
+  screen: { open: "My favorites ↓", close: "Hide films ↑" },
 };
 
 // The interest pillars. A pillar with `opens` gets a button that reveals a panel

@@ -77,7 +77,18 @@ a { color: inherit; }
 .site { max-width: 1280px; margin: 0 auto; transition: opacity .5s ease .25s; }
 html[data-intro="playing"] .site { opacity: 0; }
 
-.top { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding-block: 28px; }
+/* the header stays pinned while the page scrolls; its background runs edge to edge so content slides under it */
+.top {
+  display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding-block: 28px;
+  position: sticky; top: 0; z-index: 30; background: var(--bg);
+  box-shadow: 0 0 0 100vmax var(--bg); clip-path: inset(0 -100vmax);
+}
+/* a hairline under the header fades in once the page has scrolled a little */
+.top::after {
+  content: ""; position: absolute; left: -100vmax; right: -100vmax; bottom: 0; height: 1px; background: var(--line); opacity: 0;
+  animation: header-line linear both; animation-timeline: scroll(root); animation-range: 0 48px;
+}
+@keyframes header-line { to { opacity: 1; } }
 .mark { font: 700 1.125rem/1 var(--f-display); letter-spacing: -0.02em; text-decoration: none; }
 .mono { font: 400 .75rem/1.4 var(--f-mono); color: var(--muted); letter-spacing: .02em; }
 .top-links { display: flex; align-items: center; gap: 20px; }
@@ -444,7 +455,7 @@ a.card:hover .proj-inset { transform: translateY(-22px) rotate(0deg); box-shadow
   width: min(440px, 60vh);
   transform-origin: 100% 0;
   transform: scale(.3);
-  transition: transform .4s cubic-bezier(.3, 0, .2, 1);
+  transition: transform .4s cubic-bezier(.3, 0, .2, 1), visibility 0s;
 }
 .stage::before {
   content: ""; position: absolute; z-index: -1; inset: -26px -44px -60px -44px;
@@ -457,6 +468,26 @@ a.card:hover .proj-inset { transform: translateY(-22px) rotate(0deg); box-shadow
 }
 .stage:is(:hover, :has(:focus-visible)) .dock-hint { opacity: 1; transition-delay: .15s; }
 .stage svg { display: block; width: 100%; height: auto; overflow: visible; }
+
+/* hiding the dock: a › in its corner (shown while it's grown) slides it off the right edge,
+   and a small tab peeking in from that edge slides it back */
+.dock-hide {
+  position: absolute; top: -8px; right: -16px; width: 22px; height: 22px; display: grid; place-items: center;
+  transform: scale(1.333); transform-origin: 100% 0; border-radius: 50%; color: var(--muted);
+  opacity: 0; pointer-events: none; transition: opacity .2s ease, color .2s ease, background-color .2s ease;
+}
+.dock-hide svg { width: 10px; height: 10px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; }
+.dock-hide:hover { color: var(--ink); background: var(--line); }
+.stage:is(:hover, :has(:focus-visible)) .dock-hide { opacity: 1; pointer-events: auto; transition-delay: .15s, 0s, 0s; }
+html[data-dock="hidden"] .stage { transform: translateX(150%) scale(.3); visibility: hidden; transition: transform .4s cubic-bezier(.3, 0, .2, 1), visibility 0s .4s; }
+.dock-tab {
+  position: fixed; z-index: 40; right: 0; top: 84px; display: grid; place-items: center; width: 34px; height: 44px;
+  background: var(--bg); color: var(--muted); border: 1px solid var(--line); border-right: 0; border-radius: 12px 0 0 12px;
+  transform: translateX(100%); visibility: hidden; transition: transform .35s cubic-bezier(.3, 0, .2, 1), visibility 0s .35s, color .2s ease, width .2s ease;
+}
+.dock-tab svg { width: 16px; height: 16px; fill: var(--field); stroke: currentColor; stroke-width: 1.4; stroke-linejoin: round; }
+.dock-tab:hover { color: var(--ink); width: 42px; }
+html[data-dock="hidden"] .dock-tab { transform: none; visibility: visible; transition-delay: .2s, 0s, 0s, 0s; }
 
 .infield { fill: var(--field); }
 .chalk { fill: none; stroke: var(--muted); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; transition: stroke-width .5s ease; }

@@ -30,9 +30,9 @@ export const metadata: Metadata = {
   description: "Ryan Lee's portfolio: experience, projects, and interests, laid out like a baseball diamond.",
 };
 
-// Runs before first paint: applies a saved light theme (dark is the default) and decides
-// whether the intro plays, so neither flashes.
-const introScript = `(function(){var d=document.documentElement;try{if(localStorage.getItem("theme")==="light")d.dataset.theme="light"}catch(e){}try{d.dataset.intro=sessionStorage.getItem("intro-seen")==="1"?"seen":"playing"}catch(e){d.dataset.intro="seen"}})()`;
+// Runs before first paint: applies a saved light theme (dark is the default), hides the field dock if
+// the visitor tucked it away, and decides whether the intro plays, so none of them flash.
+const introScript = `(function(){var d=document.documentElement;try{if(localStorage.getItem("theme")==="light")d.dataset.theme="light";if(localStorage.getItem("dock")==="hidden")d.dataset.dock="hidden"}catch(e){}try{d.dataset.intro=sessionStorage.getItem("intro-seen")==="1"?"seen":"playing"}catch(e){d.dataset.intro="seen"}})()`;
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
