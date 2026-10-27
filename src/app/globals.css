@@ -199,6 +199,7 @@ html.has-cursor, html.has-cursor * { cursor: none !important; }
 .grid { margin: 48px 0 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
 .card { border: 1px solid var(--line); border-radius: 8px; display: flex; flex-direction: column; min-width: 0; overflow: hidden; text-decoration: none; transition: border-color .25s ease, transform .35s cubic-bezier(.3, 0, .2, 1); }
 a.card:hover { border-color: var(--ink); transform: translateY(-3px); }
+.more-soon { margin: 28px 0 0; max-width: none; text-align: center; font-size: .9rem; font-style: italic; color: var(--muted); }
 .card h3 { font: 600 1.45rem/1.2 var(--f-display); letter-spacing: -0.015em; margin: 0; }
 .card p { margin: 0; color: var(--muted); font-size: .98rem; line-height: 1.5; text-wrap: pretty; hyphens: manual; }
 .stack { display: flex; flex-wrap: wrap; gap: 6px 12px; margin-top: auto; padding-top: 6px; }
@@ -265,6 +266,9 @@ a.card:hover .proj-inset { transform: translateY(-22px) rotate(0deg); box-shadow
 .proj-shots { display: grid; gap: 16px; margin-top: 8px; }
 .proj-shots.two { grid-template-columns: minmax(0, 2.1fr) minmax(0, 1fr); }
 .proj-shots.two { align-items: start; }
+.proj-shots.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.captioned { margin: 0; display: grid; gap: 10px; }
+.captioned figcaption { text-align: center; }
 /* live Grove budget editor (ArcSlider): Grove's own palette in both themes */
 /* Beside a screenshot the card takes the screenshot's height (absolutely placed, so it never sets the row);
    the arc shrinks to fit. Stacked on mobile it sizes normally. */
@@ -400,7 +404,7 @@ html[data-intro="done"] #loader { transform: translateY(-100%); visibility: hidd
   .role { grid-template-columns: minmax(0, 1fr); gap: 6px; }
   .role-photos { height: 14rem; margin: 14px 0 0; }
   .things { grid-template-columns: minmax(0, 1fr); }
-  .grid, .proj-meta, .proj-sec, .proj-shots.two, .styles { grid-template-columns: minmax(0, 1fr); }
+  .grid, .proj-meta, .proj-sec, .proj-shots.two, .proj-shots.three, .styles { grid-template-columns: minmax(0, 1fr); }
   .proj-shots.two .arc-card { position: static; }
   .proj-sec { padding: 36px 0; }
   .board { padding: 24px 20px 28px; }

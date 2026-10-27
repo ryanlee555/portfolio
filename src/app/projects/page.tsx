@@ -55,6 +55,7 @@ export default function Projects() {
           ),
         )}
       </div>
+      <p className="more-soon">More coming soon</p>
     </section>
   );
 }

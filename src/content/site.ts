@@ -20,6 +20,12 @@ import groveBudgetEditor from "@/assets/projects/grove/budget-editor.webp";
 import groveBudgets from "@/assets/projects/grove/budgets.webp";
 import groveDashboard from "@/assets/projects/grove/dashboard.webp";
 import groveHero from "@/assets/projects/grove/hero.webp";
+import speakeasyFeatures from "@/assets/projects/speakeasy/features.webp";
+import speakeasyHero from "@/assets/projects/speakeasy/hero.webp";
+import speakeasyFreeplay from "@/assets/projects/speakeasy/mode-freeplay.webp";
+import speakeasyTopic from "@/assets/projects/speakeasy/mode-topic.webp";
+import speakeasyWords from "@/assets/projects/speakeasy/mode-words.webp";
+import speakeasyStudio from "@/assets/projects/speakeasy/studio.webp";
 
 // All site copy lives here. Edit this file to change what the pages say.
 // Entries marked "sample" are placeholders to replace with real content.
@@ -158,7 +164,7 @@ export const experience: Role[] = [
   },
 ];
 
-type Shot = { src: StaticImageData; alt: string };
+type Shot = { src: StaticImageData; alt: string; caption?: string };
 
 export type ProjectDetail = {
   live?: string;
@@ -243,18 +249,56 @@ export const projects: Project[] = [
       ],
     },
   },
-  // sample: real write-ups coming
   {
     slug: "speakeasy",
     name: "Speakeasy",
-    summary: "Write-up coming soon.",
-    stack: ["JavaScript", "IndexedDB", "MediaRecorder API"],
-  },
-  {
-    slug: "brain-alarm",
-    name: "Brain Alarm",
-    summary: "Write-up coming soon.",
-    stack: ["SQL", "Figma", "A/B testing"],
+    summary:
+      "A **speaking practice app** with a few different modes that help you **get comfortable speaking**, whether that's on a stage or in everyday conversation. **150+ people** use it today.",
+    stack: ["JavaScript", "Supabase", "IndexedDB", "MediaRecorder API"],
+    cover: { src: speakeasyHero, alt: "Speakeasy landing page: Speak a little easier" },
+    inset: { src: speakeasyTopic, alt: "Speakeasy practice mode panel with today's challenge" },
+    detail: {
+      live: "https://speakeasy-beryl.vercel.app",
+      repo: "https://github.com/ryanlee555/Speakeasy",
+      meta: [
+        { label: "Role", value: "Solo, full stack" },
+        { label: "Built with", value: "JavaScript, Supabase, IndexedDB, Vercel" },
+        { label: "Status", value: "Live, 150+ active users" },
+      ],
+      why: [
+        "All my life, I was **never a great speaker**. I'd find myself **trembling uncontrollably** whenever I had to speak in public, and nothing I tried seemed to help. Then I came across **Vinh Giang**, who said the best way to get better at public speaking is to **watch and listen to yourself**.",
+        "**Record yourself, then replay it**: first just the audio, then just the visual, then with a transcript, then all of it again. Doing this over and over has **genuinely helped me improve**, and I've seen real progress in myself.",
+        "The other thing that helped was **putting myself under pressure**: giving myself a random topic and speaking on it for a set amount of time. That trains your brain to **stay calm under pressure**. I hope Speakeasy helps you get better at speaking too, or at least gives you a good place to practice.",
+      ],
+      sections: [
+        {
+          title: "The studio",
+          body: "Pick a prompt, **set a timer, and hit record** in the browser. The take plays back **the moment you stop**, with a scrubber to jump around. Nothing leaves your machine unless you sign in and choose to save it, and **every take auto-saves** to a folder you pick once.",
+          shots: [{ src: speakeasyStudio, alt: "Speakeasy studio with the recording panel and practice mode picker" }],
+        },
+        {
+          title: "Three practice modes",
+          body: "**Topic** gives you a prompt from **13 categories**, each rated easy, medium, or hard. **Words** hands you a single random word and nothing else to lean on. **Freeplay** drops the prompt entirely so you can just talk. Behind them is a library of **1,043 prompts**, plus a **Daily Challenge** that's the same for everyone each day.",
+          shots: [
+            { src: speakeasyTopic, alt: "Topic mode with the daily challenge and topic categories", caption: "Topic" },
+            { src: speakeasyWords, alt: "Words mode with the daily word and word categories", caption: "Words" },
+            { src: speakeasyFreeplay, alt: "Freeplay mode with time limit options", caption: "Freeplay" },
+          ],
+        },
+        {
+          title: "Watch it back, build the habit",
+          body: "Sign in to keep every take in a **private library that follows you across devices**. Re-watch any recording as the **full video, camera only, or audio only** to notice different things each time. A **day streak** and running totals of recordings and minutes practiced keep you coming back.",
+          shots: [{ src: speakeasyFeatures, alt: "Speakeasy features: Topic, Words, and Freeplay modes, the Daily Challenge, and notes on every take" }],
+        },
+      ],
+      built: [
+        { layer: "Frontend", tech: "HTML, CSS, and plain JavaScript; no framework, no build step" },
+        { layer: "Recording", tech: "getUserMedia + MediaRecorder, capped near 1 Mbps" },
+        { layer: "Backend", tech: "Supabase: auth, Postgres, private Storage for video" },
+        { layer: "Local saves", tech: "File System Access API + IndexedDB" },
+        { layer: "Hosting", tech: "Vercel, deploys on every push to main" },
+      ],
+    },
   },
 ];
 

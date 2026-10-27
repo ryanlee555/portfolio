@@ -37,7 +37,8 @@ Living handoff file. Read this first in any new chat. Update it at the end of ev
 - Cards are two columns wide (two per row, one on mobile): screenshot stage on top (cover + floating inset, both lift on hover), then name, summary, stack
 - Grove is real and links to its detail page `/projects/grove` (`src/app/projects/[slug]/page.tsx`, data in `projects[].detail` in `site.ts`): live site + GitHub buttons, role/stack/status, hero shot, Why I built it, Spending overview, Budgets, Budgets has a live, draggable copy of Grove's arc slider (`src/components/ArcSlider.tsx`, DM Sans, Grove's palette in both themes; snaps to $50, amber past 80%, Confirm/Cancel/Remove limit, arrow keys), Hamilton AI (six style cards, from Ryan's settings screen), How it's built. Section paragraphs run the full content width, to the screenshots' right edge
 - Screenshots in `src/assets/projects/grove/` (cropped from Ryan's shots; landing page "how it works" crop saved but unused)
-- Speakeasy and Brain Alarm are placeholders ("Write-up coming soon")
+- Speakeasy is real too: `/projects/speakeasy` (live site + GitHub links), sections The studio, Three practice modes (three captioned panels, padded to equal height), Watch it back / build the habit, How it's built. Screenshots in `src/assets/projects/speakeasy/`
+- Brain Alarm removed; an italic "More coming soon" line sits under the cards
 - Opening a project: header lines rise in one after another, then the hero and each section fade up as they scroll into view (`src/components/Reveal.tsx`, `data-reveal`; reduced motion turns it off)
 - Dock treats `/projects/<slug>` as 2B; clicking 2B there goes back to `/projects`
 
@@ -45,7 +46,6 @@ Living handoff file. Read this first in any new chat. Update it at the end of ev
 
 ## Next up
 - [ ] **Theme toggle misbehaves on Home only** (fine on Projects/Interests). Could not reproduce in headless Chrome or WebKit (Playwright); the wave runs on Home there. Leading suspect: Home scrolls and the short pages don't (scrollbar affects the snapshot). Waiting on Ryan: does Experience (also scrolls) break too, which browser, and what exactly he sees.
-- [ ] Projects: Speakeasy (JavaScript, IndexedDB, MediaRecorder API) and Brain Alarm (SQL, Figma, A/B testing) need write-ups, screenshots, links.
 - [ ] Fill Interests (baseball first, plus working out, music; ask Ryan for details)
 - [ ] Message form delivery: Ryan creates a free Formspree form and shares the URL; set `NEXT_PUBLIC_FORM_ENDPOINT` in `.env.local` and on the host. Until then, submitting opens the visitor's email app.
 - [ ] Deploy (Vercel suggested; connects straight to the GitHub repo)
@@ -92,3 +92,7 @@ Living handoff file. Read this first in any new chat. Update it at the end of ev
 - 2026-10-26: Grove copy: key phrases bolded (`**...**` in site.ts, rendered with RichText on the card and detail page). Uncommitted.
 - 2026-10-26: Project detail pages no longer show the "Second base · Projects" eyebrow (overview only). Uncommitted.
 - 2026-10-26: Grove page entrance animations (staggered header, scroll reveal for sections). Verified in headless Chrome. Uncommitted.
+- 2026-10-26: Speakeasy card and detail page built (same structure as Grove). Uncommitted.
+- 2026-10-27: Speakeasy GitHub button added (github.com/ryanlee555/Speakeasy). Uncommitted.
+- 2026-10-27: Speakeasy studio paragraph reworded. Uncommitted.
+- 2026-10-27: Removed Brain Alarm placeholder; added italic "More coming soon" under the project cards. Uncommitted.

@@ -8,6 +8,9 @@ import Reveal from "@/components/Reveal";
 import RichText from "@/components/RichText";
 import { projects } from "@/content/site";
 
+// How many screenshots (or live demos) sit side by side in a section.
+const LAYOUT: Record<number, string> = { 2: "two", 3: "three" };
+
 function findProject(slug: string) {
   const project = projects.find((p) => p.slug === slug);
   return project?.detail ? { ...project, detail: project.detail } : undefined;
@@ -106,10 +109,19 @@ async function ProjectBody({ params }: { params: PageProps<"/projects/[slug]">["
               </ul>
             )}
             {(sec.shots || sec.demo) && (
-              <div className={`proj-shots${(sec.shots?.length ?? 0) + (sec.demo ? 1 : 0) > 1 ? " two" : ""}`}>
+              <div className={`proj-shots ${LAYOUT[(sec.shots?.length ?? 0) + (sec.demo ? 1 : 0)] ?? ""}`}>
                 {sec.shots?.map((s) => (
-                  <figure className="shot" key={s.alt}>
-                    <Image src={s.src} alt={s.alt} sizes="(max-width: 860px) 100vw, 900px" />
+                  <figure className={s.caption ? "captioned" : "shot"} key={s.alt}>
+                    {s.caption ? (
+                      <>
+                        <div className="shot">
+                          <Image src={s.src} alt={s.alt} sizes="(max-width: 860px) 100vw, 320px" />
+                        </div>
+                        <figcaption className="mono">{s.caption}</figcaption>
+                      </>
+                    ) : (
+                      <Image src={s.src} alt={s.alt} sizes="(max-width: 860px) 100vw, 900px" />
+                    )}
                   </figure>
                 ))}
                 {sec.demo === "arc-slider" && <ArcSlider />}
