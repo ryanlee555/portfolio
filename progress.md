@@ -46,12 +46,11 @@ Living handoff file. Read this first in any new chat. Update it at the end of ev
 **Interests (`/interests`)**
 - The three interest blurbs are still sample placeholders
 - Pillar 1 "Baseball" (Ryan's story, "Dodgers" in Dodger blue) has a "Play ball" button that opens Pinguball, a mini batting game (`src/components/BaseballGame.tsx`): pick a batter (Penguin default, Duck, Lion, Koala, Turtle; drawn in `src/components/GameCharacters.tsx`, choice remembered in localStorage; the game batter never swaps to a duck on hover, only the dock penguin does), swing with space / click / Swing button as the pitch crosses the plate; timing decides home run, double, single, foul, or strike; changeups now and then; 3 outs ends it; best score kept in localStorage. Three hits in a row (a foul or strike resets the streak) supercharges the next swing: glowing orange bat, guaranteed home run, then resets. Bat swing is a counterclockwise keyframe animation around the handle (rests toward the catcher, loads, through the zone, follows through toward third). Home runs get a celebration: two firework bursts over the outfield, a "HOME RUN!" banner, and the penguin hops
-- Pillar 2 is "Music & Concerts" (Ryan's music story); its "Click for songs" button opens the "On repeat" panel below (Close button, scrolls into view; `src/components/InterestBoard.tsx`). pillar 3 is still a sample; only one panel (songs or game) is open at a time
+- Pillar 2 is "Music & Concerts" (Ryan's music story); its "Click for songs" button opens the "On repeat" panel below (Close button, scrolls into view; `src/components/InterestBoard.tsx`). pillar 3 is "Films & Shows" (blurb in Ryan's words, bold Nolan, his three films, and the two shows); its "Click for films" button opens "On screen": a row of 14 cards (alternating movie/show, `screen` in `site.ts`) that keeps revolving (JS drift in `src/components/ScreenReel.tsx`; visitors can swipe, trackpad scroll, or mouse drag it, and it resumes 2.5s after they stop; pauses on hover or keyboard focus; endless both ways; a drag never opens a link; reduced motion = manual only). Each card opens the title's IMDb page in a new tab (all 14 IDs verified). Posters (from each title's IMDb page, 400px JPEGs in `src/assets/screen/`) load as soon as the panel opens. Only one panel (songs, game, or films) is open at a time, and leaving Interests closes it (Next keeps pages alive in a hidden `<Activity>`; a `useLayoutEffect` cleanup in `InterestBoard` resets it)
 - On repeat: four song cards (`songs` in `site.ts`, reasons written in Ryan's voice) with Spotify's player via its iFrame API (`src/components/SpotifyTrack.tsx`): one song plays at a time, and the player reloads when a preview pauses or nears its end so Spotify's "Get Spotify" ad doesn't stick. The ad can still flash briefly near a preview's end; Ryan is fine with that (2026-10-27), so no more work on it
 
 ## Next up
 - [ ] **Theme toggle misbehaves on Home only** (fine on Projects/Interests). Could not reproduce in headless Chrome or WebKit (Playwright); the wave runs on Home there. Leading suspect: Home scrolls and the short pages don't (scrollbar affects the snapshot). Waiting on Ryan: does Experience (also scrolls) break too, which browser, and what exactly he sees.
-- [ ] Fill Interests: the third pillar. Ryan to review the song reasons (drafted in his voice)
 - [ ] Deploy: add `NEXT_PUBLIC_FORM_ENDPOINT=https://formspree.io/f/xljjbvkb` to the host's environment variables (it is in local `.env.local`, which git ignores); otherwise the live form falls back to mailto
 - [ ] Deploy (Vercel suggested; connects straight to the GitHub repo)
 - [ ] Optional: project detail links, Open Graph/share image
@@ -62,6 +61,7 @@ Living handoff file. Read this first in any new chat. Update it at the end of ev
 - All copy lives in `src/content/site.ts` (profile, lineup, contact, experience, projects, interests).
 - Photo: used the restaurant photo; the round beach photo had a stray overlay dot.
 - Dev mode is slow on the first visit to each page (on-demand compile); production is instant.
+- Dev server can get stuck validating a stale copy of a page ("Could not validate `instant`" with an old code frame); restarting `npm run dev` clears it.
 - Testing tip: when the in-app browser pane is hidden, React also delays hydrating Suspense content (client code there won't run until a real click). The in-app browser pane often runs in the background, which skips view transitions and stalls animations. For visual checks, headless Chrome (`/Applications/Google Chrome.app`) or Playwright WebKit (cached in `~/Library/Caches/ms-playwright`) driven from a scratch script works better.
 - `gh` CLI not installed.
 
@@ -134,3 +134,8 @@ Living handoff file. Read this first in any new chat. Update it at the end of ev
 - 2026-10-27: "0 to 1" bolded in the looking paragraph. Not committed.
 - 2026-10-27: Formspree form set up (`.env.local`); Formspree accepted a test POST. Ryan to confirm the test email arrived.
 - 2026-10-27: Ryan confirmed a real form submission arrives (scripted tests had landed in Formspree's Spam tab). Form works locally; host still needs NEXT_PUBLIC_FORM_ENDPOINT at deploy.
+- 2026-10-27: Interests pillar 3 is Films & Shows with a revolving On screen row linking to IMDb; posters and blurb pending. Not committed.
+- 2026-10-27: Downloaded the 14 posters from IMDb (with Ryan's OK) and added them to the On screen cards. Not committed.
+- 2026-10-27: Films & Shows blurb written from Ryan's draft, sized to match the other pillars. Not committed.
+- 2026-10-27: On screen reel can be swiped/dragged by hand and resumes drifting after 2.5s; verified in headless Chrome (drift, wheel, drag, resume, click opens IMDb, drag doesn't). Not committed.
+- 2026-10-27: Interests panels now close when you leave the page, so coming back shows the default view; verified in headless Chrome for all three panels via the dock and via browser back. Not committed.

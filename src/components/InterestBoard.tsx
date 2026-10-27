@@ -1,24 +1,30 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import BaseballGame from "@/components/BaseballGame";
 import RichText from "@/components/RichText";
+import ScreenReel from "@/components/ScreenReel";
 import SpotifyTrack from "@/components/SpotifyTrack";
-import type { Interest, Song } from "@/content/site";
+import type { Interest, Screen, Song } from "@/content/site";
 
 type Panel = NonNullable<Interest["opens"]>;
 
 const BUTTONS: Record<Panel, { open: string; close: string }> = {
   songs: { open: "Click for songs ↓", close: "Hide songs ↑" },
   game: { open: "Play ball ↓", close: "Hide game ↑" },
+  screen: { open: "Click for films ↓", close: "Hide films ↑" },
 };
 
 // The interest pillars. A pillar with `opens` gets a button that reveals a panel
-// underneath (the "On repeat" songs or the mini baseball game), one at a time.
+// underneath (the "On repeat" songs, the mini baseball game, or the films and shows), one at a time.
 // Nothing in a panel loads until it's opened.
-export default function InterestBoard({ interests, songs }: { interests: Interest[]; songs: Song[] }) {
+export default function InterestBoard({ interests, songs, screen }: { interests: Interest[]; songs: Song[]; screen: Screen[] }) {
   const [open, setOpen] = useState<Panel | null>(null);
   const panel = useRef<HTMLElement>(null);
+
+  // Next keeps a page alive (hidden) after you leave it, so close any open panel then;
+  // coming back to Interests always starts with all three pillars closed.
+  useLayoutEffect(() => () => setOpen(null), []);
 
   useEffect(() => {
     if (open) panel.current?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -91,6 +97,19 @@ export default function InterestBoard({ interests, songs }: { interests: Interes
             {close}
           </div>
           <BaseballGame />
+        </section>
+      )}
+
+      {open === "screen" && (
+        <section className="panel" id="screen" aria-labelledby="screen-title" ref={panel}>
+          <div className="panel-head">
+            <div>
+              <p className="eyebrow">Films and shows I like</p>
+              <h3 id="screen-title">On screen</h3>
+            </div>
+            {close}
+          </div>
+          <ScreenReel items={screen} />
         </section>
       )}
     </>

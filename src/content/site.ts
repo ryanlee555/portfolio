@@ -24,6 +24,20 @@ import homePhoto7 from "@/assets/home/photo-7.webp";
 import homePhoto8 from "@/assets/home/photo-8.webp";
 import homePhoto9 from "@/assets/home/photo-9.webp";
 import homePhoto10 from "@/assets/home/photo-10.webp";
+import posterPrestige from "@/assets/screen/prestige.jpg";
+import posterModernFamily from "@/assets/screen/modern-family.jpg";
+import posterHacksawRidge from "@/assets/screen/hacksaw-ridge.jpg";
+import posterAttackOnTitan from "@/assets/screen/attack-on-titan.jpg";
+import posterSpiderVerse from "@/assets/screen/spider-verse.jpg";
+import posterDemonSlayer from "@/assets/screen/demon-slayer.jpg";
+import posterInglouriousBasterds from "@/assets/screen/inglourious-basterds.jpg";
+import posterTangerines from "@/assets/screen/tangerines.jpg";
+import posterTrumanShow from "@/assets/screen/truman-show.jpg";
+import posterGravityFalls from "@/assets/screen/gravity-falls.jpg";
+import posterInterstellar from "@/assets/screen/interstellar.jpg";
+import posterReply1988 from "@/assets/screen/reply-1988.jpg";
+import posterPrincessAndTheFrog from "@/assets/screen/princess-and-the-frog.jpg";
+import posterBlackMirror from "@/assets/screen/black-mirror.jpg";
 import groveBudgetEditor from "@/assets/projects/grove/budget-editor.webp";
 import groveBudgets from "@/assets/projects/grove/budgets.webp";
 import groveDashboard from "@/assets/projects/grove/dashboard.webp";
@@ -340,10 +354,9 @@ export const projects: Project[] = [
 export type Interest = {
   name: string;
   blurb: string; // **bold** works; ^^text^^ is bold Dodger blue
-  opens?: "songs" | "game"; // a button under the blurb that reveals the songs or the mini baseball game
+  opens?: "songs" | "game" | "screen"; // a button under the blurb that reveals the songs, the mini baseball game, or the films and shows
 };
 
-// The third pillar is still a sample.
 export const interests: Interest[] = [
   {
     name: "Baseball",
@@ -357,7 +370,38 @@ export const interests: Interest[] = [
       "I grew up with music. I took singing lessons as a kid, so I've always been drawn to it. In high school, I listened to a lot of pop, R&B, and K‑R&B, artists like **The Weeknd, Bruno Mars, and Wave to Earth**. I've also always loved musicals, and **Dear Theodosia** has had a place in my heart since I saw **Hamilton** on Broadway in 2022. Lately it's been a lot of **EDM**, and I love going to concerts and raves to express myself and have fun with friends. Click below to see some of the songs I have on repeat!",
     opens: "songs",
   },
-  { name: "Interest three", blurb: "A line or two about it." },
+  {
+    name: "Films & Shows",
+    blurb:
+      "One of my favorite ways to unwind after a long day is watching a movie with friends or binging a good TV show. My favorite director is **Christopher Nolan**, who's made some of my favorite films, like **The Prestige, Interstellar, and The Odyssey**. I love how his movies stay with me long after they end. For shows, I like a mix of feel‑good ones like **Modern Family** and action like **Attack on Titan**. Click below to see some of my favorite movies and shows!",
+    opens: "screen",
+  },
+];
+
+export type Screen = {
+  title: string;
+  kind: "Movie" | "Show";
+  year: string;
+  imdb: string; // the title's IMDb page
+  poster?: StaticImageData; // from the title's IMDb page, in src/assets/screen/; without one, the card shows the title instead
+};
+
+// Films and shows on Interests, alternating movie / show. They revolve in a row; each opens its IMDb page.
+export const screen: Screen[] = [
+  { title: "The Prestige", kind: "Movie", year: "2006", imdb: "https://www.imdb.com/title/tt0482571/", poster: posterPrestige },
+  { title: "Modern Family", kind: "Show", year: "2009", imdb: "https://www.imdb.com/title/tt1442437/", poster: posterModernFamily },
+  { title: "Hacksaw Ridge", kind: "Movie", year: "2016", imdb: "https://www.imdb.com/title/tt2119532/", poster: posterHacksawRidge },
+  { title: "Attack on Titan", kind: "Show", year: "2013", imdb: "https://www.imdb.com/title/tt2560140/", poster: posterAttackOnTitan },
+  { title: "Spider-Man: Across the Spider-Verse", kind: "Movie", year: "2023", imdb: "https://www.imdb.com/title/tt9362722/", poster: posterSpiderVerse },
+  { title: "Demon Slayer", kind: "Show", year: "2019", imdb: "https://www.imdb.com/title/tt9335498/", poster: posterDemonSlayer },
+  { title: "Inglourious Basterds", kind: "Movie", year: "2009", imdb: "https://www.imdb.com/title/tt0361748/", poster: posterInglouriousBasterds },
+  { title: "When Life Gives You Tangerines", kind: "Show", year: "2025", imdb: "https://www.imdb.com/title/tt26471411/", poster: posterTangerines },
+  { title: "The Truman Show", kind: "Movie", year: "1998", imdb: "https://www.imdb.com/title/tt0120382/", poster: posterTrumanShow },
+  { title: "Gravity Falls", kind: "Show", year: "2012", imdb: "https://www.imdb.com/title/tt1865718/", poster: posterGravityFalls },
+  { title: "Interstellar", kind: "Movie", year: "2014", imdb: "https://www.imdb.com/title/tt0816692/", poster: posterInterstellar },
+  { title: "Reply 1988", kind: "Show", year: "2015", imdb: "https://www.imdb.com/title/tt5182866/", poster: posterReply1988 },
+  { title: "The Princess and the Frog", kind: "Movie", year: "2009", imdb: "https://www.imdb.com/title/tt0780521/", poster: posterPrincessAndTheFrog },
+  { title: "Black Mirror", kind: "Show", year: "2011", imdb: "https://www.imdb.com/title/tt2085059/", poster: posterBlackMirror },
 ];
 
 export type Song = {
