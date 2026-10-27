@@ -346,7 +346,7 @@ export const songs: Song[] = [
     artist: "GRiZ",
     spotifyId: "4zTVDxD5KpLjrSAiLcxl4b",
     why: [
-      "My **favorite song** from my **favorite artist, GRiZ**. Nobody else in EDM sounds like him: he mixes **funky, soulful grooves** with heavy bass and plays **live saxophone** right over the top. Infinite has that **feel-good, uplifting energy** that makes it impossible not to smile.",
+      "My **favorite song** from my **favorite artist, GRiZ**. Nobody else in EDM sounds like him: he mixes **funky, soulful grooves** with heavy bass and plays **live saxophone** right over the top. Infinite has that **feel-good, uplifting energy** that makes it impossible not to smile, and hearing it at EDC genuinely changed my life.",
     ],
   },
   {
@@ -354,7 +354,7 @@ export const songs: Song[] = [
     artist: "Nerd Connection",
     spotifyId: "423WHvB4mKprM6hELzpH3F",
     why: [
-      "Such a **beautiful Korean melody** about **love, heartbreak, and farewell**. It's soft, warm, and a little bittersweet, like saying goodbye to someone you still care about, and it's the kind of song I put on **late at night** when everything slows down.",
+      "This song is such a **beautiful Korean melody** about **love, heartbreak, and farewell**. It's soft, warm, and a little bittersweet, like saying goodbye to someone you still care about, and it's the kind of song I like to put on **late at night** when I want to wind down.",
     ],
   },
   {
