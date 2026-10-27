@@ -17,7 +17,7 @@ Living handoff file. Read this first in any new chat. Update it at the end of ev
 - Dark mode by default; sun/moon toggle in header. Switching grows the new theme out of the toggle as a soft-edged circle (CSS `@keyframes` on `::view-transition-new(root)`, 0.9s); choice saved in localStorage
 - Header: name (left); theme toggle, Resume ↗ (`public/ryan-lee-resume.pdf`), GitHub ↗, LinkedIn ↗ (right)
 - Field dock (bottom-right): grows only on real hover and shows all four base labels; hint "Click a base, or use the ← → keys" on top. Clicking a base waddles the penguin there, then navigates. Lineup links, header name, and ←/→ keys waddle without growing the dock. Back/forward makes the penguin catch up.
-- Easter egg: hovering the penguin turns it into a duck
+- Easter egg: hovering the penguin turns it into a random duck, lion, koala, or turtle (new pick each hover; default is always the penguin; art reused from `GameCharacters.tsx`)
 - Custom cursor: white dot with difference blend (inverts over content), grows on links; off on touch screens
 - Footer: "designed and developed by / Ryan Lee" (left), "all rights reserved, / ryan lee ©2026" (right), small
 - Page max width 1280px; penguin favicon
@@ -113,3 +113,4 @@ Living handoff file. Read this first in any new chat. Update it at the end of ev
 - 2026-10-27: Pinguball: swing now counterclockwise; home run celebration added.
 - 2026-10-27: Pinguball: batter picker (penguin, duck, lion, koala, turtle); game batter no longer turns into a duck on hover.
 - 2026-10-27: Session wrap-up: all work committed and pushed (latest ac3080b); progress.md tidied.
+- 2026-10-27: Dock penguin easter egg now randomizes between duck, lion, koala, turtle on each hover. Pick logic verified; not committed yet.

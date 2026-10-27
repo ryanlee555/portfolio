@@ -457,14 +457,10 @@ html:not([data-intro="playing"]) .draw { animation: draw 1.2s cubic-bezier(.6, 0
 /* penguin */
 .penguin, .penguin * { pointer-events: none; }
 .penguin .p-hit { fill: transparent; pointer-events: all; cursor: default; }
-.penguin .peng, .penguin .duck { transition: opacity .2s ease, transform .25s cubic-bezier(.3, 1.6, .5, 1); transform-origin: 0 -10px; }
-.penguin .duck { opacity: 0; transform: scale(.6); }
+.penguin .peng, .penguin .alt { transition: opacity .2s ease, transform .25s cubic-bezier(.3, 1.6, .5, 1); transform-origin: 0 -10px; }
+.penguin .alt { opacity: 0; transform: scale(.6); }
 .penguin:hover .peng { opacity: 0; transform: scale(.6); }
-.penguin:hover .duck { opacity: 1; transform: scale(1); }
-.penguin .d-body, .penguin .d-head, .penguin .d-tail { fill: var(--duck); }
-.penguin .d-wing { fill: var(--duck-wing); }
-.penguin .d-eye { fill: var(--duck-eye); }
-.penguin .d-bill { fill: var(--beak); }
+.penguin:hover .alt.on { opacity: 1; transform: scale(1); }
 .penguin .p-body, .penguin .p-flip { fill: var(--pbody); stroke: var(--pline); stroke-width: .8; }
 .penguin .p-belly, .penguin .p-eye { fill: var(--pbelly); }
 .penguin .p-beak, .penguin .p-foot { fill: var(--beak); }

@@ -20,7 +20,7 @@ Personal portfolio site for Ryan Lee. Repo: https://github.com/ryanlee555/portfo
 - `src/components/Dock.tsx`: bottom-right ballfield nav. Grows on hover; clicking a base makes the penguin waddle there, then `router.push`. Back/forward makes the penguin catch up.
 - `src/components/BaseLink.tsx`: links elsewhere on the page that ask the dock to run first (via a `base:go` window event).
 - `src/components/Loader.tsx`: 0-100 intro, once per browser session (`sessionStorage`), gated by an inline script in `layout.tsx`.
-- `src/components/Penguin.tsx`: the penguin (and the duck it turns into on hover).
+- `src/components/Penguin.tsx`: the penguin (and the random animal it turns into on hover).
 - `src/components/ThemeToggle.tsx`: dark (default) / light switch; the reveal animation lives in `globals.css` (`theme-reveal`).
 - `src/components/Contact.tsx`: contact scoreboard + message form on Home (`NEXT_PUBLIC_FORM_ENDPOINT`, else mailto).
 - `src/components/Cursor.tsx`: inverting dot cursor. `src/components/RichText.tsx`: `**bold**` markup and `BoldNumbers`.
