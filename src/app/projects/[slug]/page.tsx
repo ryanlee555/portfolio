@@ -41,7 +41,6 @@ async function ProjectBody({ params }: { params: PageProps<"/projects/[slug]">["
       <Link href="/projects" className="back mono">
         ← All projects
       </Link>
-      <p className="eyebrow">Second base · Projects</p>
       <h2 id="proj-title">{project.name}</h2>
       <p className="lede">
         <RichText text={project.summary} />
