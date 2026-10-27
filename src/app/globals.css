@@ -196,6 +196,9 @@ html.has-cursor, html.has-cursor * { cursor: none !important; }
 /* experience */
 .roles { margin: 48px 0 0; border-top: 1px solid var(--line); }
 .role { display: grid; grid-template-columns: 11rem minmax(0, 1fr) 17rem; gap: 8px 40px; padding: 30px 0; border-bottom: 1px solid var(--line); }
+/* the footer's own rule closes the list, so the last role skips its line and the page needs less room below it */
+.role:last-child { border-bottom: 0; }
+main:has(.experience-page) { padding-bottom: 24px; }
 .role-side { display: grid; gap: 16px; align-content: start; justify-items: start; }
 /* Logos sit straight on the page. Dark logos (Uber, ServiceNow) have a light twin for dark mode. */
 .role-logo { display: flex; align-items: center; margin-top: 4px; }

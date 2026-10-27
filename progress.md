@@ -148,3 +148,4 @@ Living handoff file. Read this first in any new chat. Update it at the end of ev
 - 2026-10-27: Deployed to Vercel and connected ryanlee.io. Wrote README.md in the Grove/Speakeasy style (what it is, features, stack, how it fits together, getting started, structure, roadmap). Not committed.
 - 2026-10-27: Live at https://www.ryanlee.io (bare domain redirects); contact form confirmed delivering from the live site. README pushed (241ba33).
 - 2026-10-27: Scroll reveal animations on Home and Experience. Verified in headless Chrome (above the fold shows at once, rest reveals on scroll, jump to bottom leaves nothing hidden, no leftover transforms). Not committed.
+- 2026-10-27: Experience page: removed the double line above the footer (last role has no bottom border) and trimmed the gap below the last role.
