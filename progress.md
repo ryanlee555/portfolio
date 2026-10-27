@@ -8,7 +8,7 @@ Living handoff file. Read this first in any new chat. Update it at the end of ev
 - Concept: minimalist baseball diamond as navigation. A small penguin waddles base to base to change pages: Home plate = About, 1B = Experience, 2B = Projects, 3B = Interests. Clean, simple theme. Laptop-first (mobile just needs to work).
 - Stack: Next.js 16 + React 19 + TypeScript, plain CSS. File map and rules in `CLAUDE.md`.
 - Run locally: `npm run dev` → http://localhost:3000
-- Hosting: deployed on Vercel (project `ryanleeportfolio`, auto-deploys on push to `main`). Domain ryanlee.io bought through Vercel (www.ryanlee.io is production, bare domain redirects to it); SSL was still generating at last check. Env var `NEXT_PUBLIC_FORM_ENDPOINT` must be set in Vercel (Ryan to confirm).
+- Hosting: deployed on Vercel (project `ryanleeportfolio`, auto-deploys on push to `main`). Domain ryanlee.io bought through Vercel (www.ryanlee.io is production, bare domain redirects to it); SSL done, all pages verified live. `NEXT_PUBLIC_FORM_ENDPOINT` is set in Vercel and a real message through the live form reached Ryan (2026-10-27).
 - Design reference: private preview artifact https://claude.ai/artifact/5dGtmFZC7234P4c6uRpEEF (early prototype; the real site has moved past it).
 
 ## Current state of the site
@@ -52,9 +52,7 @@ Living handoff file. Read this first in any new chat. Update it at the end of ev
 
 ## Next up
 - [ ] **Theme toggle misbehaves on Home only** (fine on Projects/Interests). Could not reproduce in headless Chrome or WebKit (Playwright); the wave runs on Home there. Leading suspect: Home scrolls and the short pages don't (scrollbar affects the snapshot). Waiting on Ryan: does Experience (also scrolls) break too, which browser, and what exactly he sees.
-- [ ] Confirm `NEXT_PUBLIC_FORM_ENDPOINT=https://formspree.io/f/xljjbvkb` is set in Vercel (Production environment; redeploy after adding), then send one real message through the live form and check Formspree's Inbox
-- [ ] Once SSL finishes: check every page on https://www.ryanlee.io; optionally restrict the Formspree form to ryanlee.io
-- [ ] Deploy (Vercel suggested; connects straight to the GitHub repo)
+- [ ] Optional: restrict the Formspree form to ryanlee.io (Domains in Formspree; may need a paid plan); turn off auto-renew on ryanlee.io if wanted (check the .io renewal price)
 - [ ] Optional: project detail links, Open Graph/share image
 
 ## Decisions & notes
@@ -147,3 +145,4 @@ Living handoff file. Read this first in any new chat. Update it at the end of ev
 - 2026-10-27: Dock hide/show: × on the grown dock, diamond tab on the right edge to bring it back, remembered across visits. Verified in headless Chrome (hide, reload stays hidden, tab restores, arrow keys still work). Not committed.
 - 2026-10-27: Dock hide button is now a › chevron, moved a little left and down into the corner. Not committed.
 - 2026-10-27: Deployed to Vercel and connected ryanlee.io. Wrote README.md in the Grove/Speakeasy style (what it is, features, stack, how it fits together, getting started, structure, roadmap). Not committed.
+- 2026-10-27: Live at https://www.ryanlee.io (bare domain redirects); contact form confirmed delivering from the live site. README pushed (241ba33).
