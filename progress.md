@@ -4,7 +4,7 @@ Living handoff file. Read this first in any new chat. Update it at the end of ev
 
 ## Project
 - Personal portfolio website for Ryan Lee (4th-year UC Berkeley, IE + Data Science, pursuing product)
-- Repo: https://github.com/ryanlee555/portfolio (branch `main`, everything pushed as of 2026-10-26, last commit 88b02e0)
+- Repo: https://github.com/ryanlee555/portfolio (branch `main`; everything through Pinguball, commit ac3080b, is pushed as of 2026-10-27)
 - Concept: minimalist baseball diamond as navigation. A small penguin waddles base to base to change pages: Home plate = About, 1B = Experience, 2B = Projects, 3B = Interests. Clean, simple theme. Laptop-first (mobile just needs to work).
 - Stack: Next.js 16 + React 19 + TypeScript, plain CSS. File map and rules in `CLAUDE.md`.
 - Run locally: `npm run dev` → http://localhost:3000
@@ -78,37 +78,38 @@ Living handoff file. Read this first in any new chat. Update it at the end of ev
 - 2026-10-26: Theme reveal moved to CSS keyframes so content appears with the wave; confirmed working for Ryan except on Home.
 - 2026-10-26: Resume link; Experience filled from resume with logos, bold numbers, tidy line length.
 - 2026-10-26: Session wrap-up; progress.md and CLAUDE.md refreshed.
-- 2026-10-26: Added Uber and PepsiCo photos to Experience (right column). Uncommitted.
-- 2026-10-26: Experience photos now overlap with a hover lift and no longer affect section height. Uncommitted.
+- 2026-10-26: Added Uber and PepsiCo photos to Experience (right column).
+- 2026-10-26: Experience photos now overlap with a hover lift and no longer affect section height.
 - 2026-10-26: Experience photos enlarged to fill the row (17rem column, 72% x 86% frames); verified at 1280px that row heights are unchanged.
 - 2026-10-26: Experience photos spread wider (column bleeds 7rem left into the gap, frames 55% wide) to cover the empty space beside the text; mobile unchanged.
 - 2026-10-26: Logo photos (Uber sign, PepsiCo wall) now sit in front of the overlap.
-- 2026-10-26: Added Cisco and Tesla photos (branded photo in front, as with Uber/PepsiCo). Uncommitted.
+- 2026-10-26: Added Cisco and Tesla photos (branded photo in front, as with Uber/PepsiCo).
 - 2026-10-26: Tesla photo restored to the original file; optional per-photo `position` (CSS object-position) in `site.ts`, Tesla uses 100% 50% so the whole wordmark shows with more of the building.
-- 2026-10-26: Added ServiceNow photos (building sign in front). All roles now have photos. Uncommitted.
-- 2026-10-26: Lineup About line now reads "You're already here, thanks for visiting!". Uncommitted.
-- 2026-10-26: Projects page rebuilt as two-column cards; Grove card and `/projects/grove` detail page built from Ryan's screenshots and README. Uncommitted.
+- 2026-10-26: Added ServiceNow photos (building sign in front). All roles now have photos.
+- 2026-10-26: Lineup About line now reads "You're already here, thanks for visiting!".
+- 2026-10-26: Projects page rebuilt as two-column cards; Grove card and `/projects/grove` detail page built from Ryan's screenshots and README.
 - 2026-10-26: Ryan confirmed the Grove repo is public; GitHub button stays.
-- 2026-10-26: Grove page: removed What's next; Hamilton AI shows the six styles (incl. Lin-Manuel) as cards; paragraphs widened to the screenshot edge. Uncommitted.
-- 2026-10-26: Grove: Why I built it paragraph shortened; interactive arc slider replaces the budget editor screenshot. Uncommitted.
+- 2026-10-26: Grove page: removed What's next; Hamilton AI shows the six styles (incl. Lin-Manuel) as cards; paragraphs widened to the screenshot edge.
+- 2026-10-26: Grove: Why I built it paragraph shortened; interactive arc slider replaces the budget editor screenshot.
 - 2026-10-26: Dock's arrow-key navigation now ignores keys a slider already used.
 - 2026-10-26: Arc slider card now matches the budgets screenshot's height (absolutely placed in the row; arc scales to fit).
-- 2026-10-26: Grove copy: key phrases bolded (`**...**` in site.ts, rendered with RichText on the card and detail page). Uncommitted.
-- 2026-10-26: Project detail pages no longer show the "Second base · Projects" eyebrow (overview only). Uncommitted.
-- 2026-10-26: Grove page entrance animations (staggered header, scroll reveal for sections). Verified in headless Chrome. Uncommitted.
-- 2026-10-26: Speakeasy card and detail page built (same structure as Grove). Uncommitted.
-- 2026-10-27: Speakeasy GitHub button added (github.com/ryanlee555/Speakeasy). Uncommitted.
-- 2026-10-27: Speakeasy studio paragraph reworded. Uncommitted.
-- 2026-10-27: Removed Brain Alarm placeholder; added italic "More coming soon" under the project cards. Uncommitted.
-- 2026-10-27: Interests: added On repeat song cards with playable Spotify embeds (reasons pending from Ryan). Uncommitted.
-- 2026-10-27: Interests: Music & Concerts pillar with click-to-open On repeat songs, song reasons written, title periods removed, Spotify ad workaround. Uncommitted.
+- 2026-10-26: Grove copy: key phrases bolded (`**...**` in site.ts, rendered with RichText on the card and detail page).
+- 2026-10-26: Project detail pages no longer show the "Second base · Projects" eyebrow (overview only).
+- 2026-10-26: Grove page entrance animations (staggered header, scroll reveal for sections). Verified in headless Chrome.
+- 2026-10-26: Speakeasy card and detail page built (same structure as Grove).
+- 2026-10-27: Speakeasy GitHub button added (github.com/ryanlee555/Speakeasy).
+- 2026-10-27: Speakeasy studio paragraph reworded.
+- 2026-10-27: Removed Brain Alarm placeholder; added italic "More coming soon" under the project cards.
+- 2026-10-27: Interests: added On repeat song cards with playable Spotify embeds (reasons pending from Ryan).
+- 2026-10-27: Interests: Music & Concerts pillar with click-to-open On repeat songs, song reasons written, title periods removed, Spotify ad workaround.
 - 2026-10-27: Ryan OK with the brief Spotify ad near a preview's end; dropped from Next up.
-- 2026-10-27: "Click for songs" / "Hide songs" button now uses the body font. Uncommitted.
-- 2026-10-27: Music & Concerts blurb updated to Ryan's wording; bold only on the artists, Dear Theodosia, Hamilton, EDM. Uncommitted.
-- 2026-10-27: Song reasons for Infinite and Good Night Good Dream updated to Ryan's wording. Uncommitted.
-- 2026-10-27: Baseball pillar blurb written in Ryan's words (similar length to Music & Concerts); it mentions a mini baseball game that isn't built yet. Uncommitted.
-- 2026-10-27: "Dodgers" in the Baseball blurb is bold Dodger blue (`^^text^^` in site.ts; `--dodger` token: #005A9C light, #3E8EDE dark). Uncommitted.
-- 2026-10-27: Mini baseball batting game opens from the Baseball pillar. Playtested a full game in headless Chrome. Uncommitted.
-- 2026-10-27: Pinguball: renamed from Mini baseball, fixed bat swing animation, added 3-hit-streak supercharged home run. Playtested in headless Chrome. Uncommitted.
-- 2026-10-27: Pinguball: swing now counterclockwise; home run celebration added. Uncommitted.
-- 2026-10-27: Pinguball: batter picker (penguin, duck, lion, koala, turtle); game batter no longer turns into a duck on hover. Uncommitted.
+- 2026-10-27: "Click for songs" / "Hide songs" button now uses the body font.
+- 2026-10-27: Music & Concerts blurb updated to Ryan's wording; bold only on the artists, Dear Theodosia, Hamilton, EDM.
+- 2026-10-27: Song reasons for Infinite and Good Night Good Dream updated to Ryan's wording.
+- 2026-10-27: Baseball pillar blurb written in Ryan's words (similar length to Music & Concerts).
+- 2026-10-27: "Dodgers" in the Baseball blurb is bold Dodger blue (`^^text^^` in site.ts; `--dodger` token: #005A9C light, #3E8EDE dark).
+- 2026-10-27: Mini baseball batting game opens from the Baseball pillar. Playtested a full game in headless Chrome.
+- 2026-10-27: Pinguball: renamed from Mini baseball, fixed bat swing animation, added 3-hit-streak supercharged home run. Playtested in headless Chrome.
+- 2026-10-27: Pinguball: swing now counterclockwise; home run celebration added.
+- 2026-10-27: Pinguball: batter picker (penguin, duck, lion, koala, turtle); game batter no longer turns into a duck on hover.
+- 2026-10-27: Session wrap-up: all work committed and pushed (latest ac3080b); progress.md tidied.
