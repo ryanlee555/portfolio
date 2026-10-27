@@ -44,12 +44,13 @@ Living handoff file. Read this first in any new chat. Update it at the end of ev
 
 **Interests (`/interests`)**
 - The three interest blurbs are still sample placeholders
-- Pillar 2 is "Music & Concerts" (Ryan's music story); its "Click for songs" button opens the "On repeat" panel below (Close button, scrolls into view; `src/components/InterestBoard.tsx`). Baseball and pillar 3 are still samples
+- Pillar 1 "Baseball" (Ryan's story, "Dodgers" in Dodger blue) has a "Play ball" button that opens Pinguball, a mini batting game (`src/components/BaseballGame.tsx`): pick a batter (Penguin default, Duck, Lion, Koala, Turtle; drawn in `src/components/GameCharacters.tsx`, choice remembered in localStorage; the game batter never swaps to a duck on hover, only the dock penguin does), swing with space / click / Swing button as the pitch crosses the plate; timing decides home run, double, single, foul, or strike; changeups now and then; 3 outs ends it; best score kept in localStorage. Three hits in a row (a foul or strike resets the streak) supercharges the next swing: glowing orange bat, guaranteed home run, then resets. Bat swing is a counterclockwise keyframe animation around the handle (rests toward the catcher, loads, through the zone, follows through toward third). Home runs get a celebration: two firework bursts over the outfield, a "HOME RUN!" banner, and the penguin hops
+- Pillar 2 is "Music & Concerts" (Ryan's music story); its "Click for songs" button opens the "On repeat" panel below (Close button, scrolls into view; `src/components/InterestBoard.tsx`). pillar 3 is still a sample; only one panel (songs or game) is open at a time
 - On repeat: four song cards (`songs` in `site.ts`, reasons written in Ryan's voice) with Spotify's player via its iFrame API (`src/components/SpotifyTrack.tsx`): one song plays at a time, and the player reloads when a preview pauses or nears its end so Spotify's "Get Spotify" ad doesn't stick. The ad can still flash briefly near a preview's end; Ryan is fine with that (2026-10-27), so no more work on it
 
 ## Next up
 - [ ] **Theme toggle misbehaves on Home only** (fine on Projects/Interests). Could not reproduce in headless Chrome or WebKit (Playwright); the wave runs on Home there. Leading suspect: Home scrolls and the short pages don't (scrollbar affects the snapshot). Waiting on Ryan: does Experience (also scrolls) break too, which browser, and what exactly he sees.
-- [ ] Fill Interests: Baseball and the third pillar blurbs. Ryan to review the song reasons (drafted in his voice)
+- [ ] Fill Interests: the third pillar. Ryan to review the song reasons (drafted in his voice)
 - [ ] Message form delivery: Ryan creates a free Formspree form and shares the URL; set `NEXT_PUBLIC_FORM_ENDPOINT` in `.env.local` and on the host. Until then, submitting opens the visitor's email app.
 - [ ] Deploy (Vercel suggested; connects straight to the GitHub repo)
 - [ ] Optional: project detail links, Open Graph/share image
@@ -107,3 +108,7 @@ Living handoff file. Read this first in any new chat. Update it at the end of ev
 - 2026-10-27: Song reasons for Infinite and Good Night Good Dream updated to Ryan's wording. Uncommitted.
 - 2026-10-27: Baseball pillar blurb written in Ryan's words (similar length to Music & Concerts); it mentions a mini baseball game that isn't built yet. Uncommitted.
 - 2026-10-27: "Dodgers" in the Baseball blurb is bold Dodger blue (`^^text^^` in site.ts; `--dodger` token: #005A9C light, #3E8EDE dark). Uncommitted.
+- 2026-10-27: Mini baseball batting game opens from the Baseball pillar. Playtested a full game in headless Chrome. Uncommitted.
+- 2026-10-27: Pinguball: renamed from Mini baseball, fixed bat swing animation, added 3-hit-streak supercharged home run. Playtested in headless Chrome. Uncommitted.
+- 2026-10-27: Pinguball: swing now counterclockwise; home run celebration added. Uncommitted.
+- 2026-10-27: Pinguball: batter picker (penguin, duck, lion, koala, turtle); game batter no longer turns into a duck on hover. Uncommitted.

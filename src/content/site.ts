@@ -305,7 +305,7 @@ export const projects: Project[] = [
 export type Interest = {
   name: string;
   blurb: string; // **bold** works; ^^text^^ is bold Dodger blue
-  opens?: "songs"; // a button under the blurb that reveals the "On repeat" songs
+  opens?: "songs" | "game"; // a button under the blurb that reveals the songs or the mini baseball game
 };
 
 // The third pillar is still a sample.
@@ -314,6 +314,7 @@ export const interests: Interest[] = [
     name: "Baseball",
     blurb:
       "Baseball was the first sport I ever played, and I'm so glad I was introduced to it. I started playing when I was **6** and kept at it all the way through my **senior year of high school**. It taught me how to stay patient, keep working at something, and be a good teammate. These days, one of my favorite things to do is still watching the ^^Dodgers^^ play, and I love playing catch with my friends whenever I have free time. Click below to play a fun mini baseball game!",
+    opens: "game",
   },
   {
     name: "Music & Concerts",
