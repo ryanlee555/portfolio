@@ -190,7 +190,7 @@ export const projects: Project[] = [
     slug: "grove",
     name: "Grove",
     summary:
-      "A personal full-stack finance and budgeting app. It links to real bank accounts and turns raw transactions into a clear picture of where my money goes.",
+      "A personal **full-stack finance and budgeting app**. It links to **real bank accounts** and turns raw transactions into **a clear picture of where my money goes**.",
     stack: ["React", "Supabase", "TypeScript", "Vercel"],
     cover: { src: groveHero, alt: "Grove landing page: Grow your savings, naturally" },
     inset: { src: groveBudgetEditor, alt: "Grove budget editor with an arc slider set to $150" },
@@ -203,19 +203,19 @@ export const projects: Project[] = [
         { label: "Status", value: "Live, used every week" },
       ],
       why: [
-        "I'm a broke college student who got tired of having no idea where my money was going. My bank would show me a long list of transactions and call it a day, but that wasn't enough. I wanted to actually see it: where is my money really going every month?",
-        "So I built Grove, a clean, simple, and transparent tool that shows exactly where your money goes, so you can budget with a clearer head. It started as a way to make sense of my own spending and turned into something I use every week.",
-        "If you're a student, a young professional, or anyone who wants more clarity on their finances, Grove was made for you.",
+        "I'm a **broke college student** who got tired of having **no idea where my money was going**. My bank would show me a long list of transactions and call it a day, but that wasn't enough. I wanted to actually see it: **where is my money really going every month?**",
+        "So I built Grove, a **clean, simple, and transparent** tool that shows **exactly where your money goes**, so you can budget with a clearer head. It started as a way to make sense of my own spending and turned into something **I use every week**.",
+        "If you're a student, a young professional, or anyone who wants **more clarity on their finances**, Grove was made for you.",
       ],
       sections: [
         {
           title: "Spending overview",
-          body: "Grove syncs live transactions from my SoFi and Chase accounts through Plaid. The dashboard breaks spending down by category or by card with an interactive donut chart, weekly trends, and a sortable transaction table. Edits like recategorizing or deleting a transaction are saved against Plaid's stable IDs, so they survive every future sync.",
+          body: "Grove syncs **live transactions** from my SoFi and Chase accounts **through Plaid**. The dashboard breaks spending down **by category or by card** with an interactive donut chart, weekly trends, and a sortable transaction table. Edits like recategorizing or deleting a transaction are saved against Plaid's stable IDs, so they **survive every future sync**.",
           shots: [{ src: groveDashboard, alt: "Grove dashboard with total spent, a category donut chart, transactions, and weekly trends" }],
         },
         {
           title: "Budgets",
-          body: "Set a monthly limit for each category and see at a glance what's on track and what's over. Limits are set with a custom SVG arc slider: drag to set, snap to $50, with an amber warning past 80%. Try it on the right.",
+          body: "Set a **monthly limit for each category** and see at a glance **what's on track and what's over**. Limits are set with a **custom SVG arc slider**: drag to set, snap to $50, with an amber warning past 80%. **Try it on the right.**",
           shots: [
             { src: groveBudgets, alt: "Grove budgets page with totals and a card per category" },
           ],
@@ -223,7 +223,7 @@ export const projects: Project[] = [
         },
         {
           title: "Hamilton AI",
-          body: "A slide-in assistant built on Claude that knows my transaction history and monthly spending, so I can just ask where my money went. It answers in whichever of six styles I pick.",
+          body: "A slide-in assistant **built on Claude** that knows my **transaction history and monthly spending**, so I can just **ask where my money went**. It answers in whichever of **six styles** I pick.",
           options: [
             { name: "Default", blurb: "Balanced and friendly, like a knowledgeable friend." },
             { name: "Concise", blurb: "Short and direct. No fluff, just the numbers." },

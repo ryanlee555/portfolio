@@ -243,6 +243,7 @@ a.card:hover .proj-inset { transform: translateY(-22px) rotate(0deg); box-shadow
 .proj-sec h3 { font: 600 1.35rem/1.25 var(--f-display); letter-spacing: -0.015em; margin: 0; display: grid; gap: 8px; align-content: start; }
 .proj-text { display: grid; gap: 16px; min-width: 0; }
 .proj-text p { margin: 0; max-width: none; text-wrap: pretty; hyphens: manual; }
+.proj-text strong, .card p strong { font-weight: 600; color: var(--ink); }
 .proj-shots { display: grid; gap: 16px; margin-top: 8px; }
 .proj-shots.two { grid-template-columns: minmax(0, 2.1fr) minmax(0, 1fr); }
 .proj-shots.two { align-items: start; }

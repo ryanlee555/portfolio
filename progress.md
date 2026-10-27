@@ -88,3 +88,4 @@ Living handoff file. Read this first in any new chat. Update it at the end of ev
 - 2026-10-26: Grove: Why I built it paragraph shortened; interactive arc slider replaces the budget editor screenshot. Uncommitted.
 - 2026-10-26: Dock's arrow-key navigation now ignores keys a slider already used.
 - 2026-10-26: Arc slider card now matches the budgets screenshot's height (absolutely placed in the row; arc scales to fit).
+- 2026-10-26: Grove copy: key phrases bolded (`**...**` in site.ts, rendered with RichText on the card and detail page). Uncommitted.

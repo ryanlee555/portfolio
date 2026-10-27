@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import RichText from "@/components/RichText";
 import { projects, type Project } from "@/content/site";
 
 export const metadata: Metadata = { title: "Projects" };
@@ -23,7 +24,9 @@ function CardBody({ project }: { project: Project }) {
           <h3>{project.name}</h3>
           {project.detail && <span className="more">View project →</span>}
         </div>
-        <p>{project.summary}</p>
+        <p>
+          <RichText text={project.summary} />
+        </p>
         <div className="stack mono">
           {project.stack.map((tech) => (
             <span key={tech}>{tech}</span>

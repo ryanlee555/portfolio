@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import ArcSlider from "@/components/ArcSlider";
+import RichText from "@/components/RichText";
 import { projects } from "@/content/site";
 
 function findProject(slug: string) {
@@ -42,7 +43,9 @@ async function ProjectBody({ params }: { params: PageProps<"/projects/[slug]">["
       </Link>
       <p className="eyebrow">Second base · Projects</p>
       <h2 id="proj-title">{project.name}</h2>
-      <p className="lede">{project.summary}</p>
+      <p className="lede">
+        <RichText text={project.summary} />
+      </p>
       <div className="proj-links">
         {detail.live && (
           <a className="btn" href={detail.live} target="_blank" rel="noopener noreferrer">
@@ -75,7 +78,9 @@ async function ProjectBody({ params }: { params: PageProps<"/projects/[slug]">["
         <h3>Why I built it</h3>
         <div className="proj-text">
           {detail.why.map((para) => (
-            <p key={para}>{para}</p>
+            <p key={para}>
+              <RichText text={para} />
+            </p>
           ))}
         </div>
       </section>
@@ -87,7 +92,9 @@ async function ProjectBody({ params }: { params: PageProps<"/projects/[slug]">["
             {sec.title}
           </h3>
           <div className="proj-text">
-            <p>{sec.body}</p>
+            <p>
+              <RichText text={sec.body} />
+            </p>
             {sec.options && (
               <ul className="styles">
                 {sec.options.map((o) => (
