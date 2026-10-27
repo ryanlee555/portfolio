@@ -314,6 +314,25 @@ a.card:hover .proj-inset { transform: translateY(-22px) rotate(0deg); box-shadow
 .things li { padding: 24px 0 8px; border-top: 1px solid var(--line); display: grid; align-content: start; gap: 8px; }
 .things .big { font: 700 clamp(1.7rem, 3.2vw, 2.4rem)/1.1 var(--f-display); letter-spacing: -0.025em; }
 .things p { margin: 0; color: var(--muted); }
+.things p strong { font-weight: 600; color: var(--ink); }
+.things li { transition: border-color .3s ease; }
+.things li.active { border-top-color: var(--ink); }
+.pillar-btn { justify-self: start; margin-top: 8px; font: 500 .8rem/1 var(--f-mono); letter-spacing: .04em; color: var(--ink); background: none; border: 1px solid var(--line); border-radius: 999px; padding: 10px 14px; cursor: pointer; transition: border-color .2s ease, transform .25s ease; }
+.pillar-btn:hover { border-color: var(--ink); transform: translateY(-2px); }
+/* songs: Spotify's player on top, then the artist, title, and why I love it */
+.songs { margin: 64px 0 0; scroll-margin-top: 24px; animation: rise .6s cubic-bezier(.2, .7, .2, 1) both; }
+.songs-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; }
+.songs-head .btn { cursor: pointer; font: 500 .8rem/1 var(--f-mono); }
+.songs h3 { font: 700 clamp(1.8rem, 3.4vw, 2.6rem)/1.05 var(--f-display); letter-spacing: -0.03em; margin: 0; }
+.song-grid { animation: rise .7s cubic-bezier(.2, .7, .2, 1) .1s both; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin: 32px 0 0; }
+.song { display: grid; align-content: start; gap: 6px; padding: 16px 16px 22px; border: 1px solid var(--line); border-radius: 12px; min-width: 0; transition: border-color .25s ease, transform .35s cubic-bezier(.3, 0, .2, 1); }
+.song:hover { border-color: var(--muted); transform: translateY(-3px); }
+.song .spotify { height: 152px; margin-bottom: 14px; border-radius: 12px; overflow: hidden; background: var(--field); }
+.song .spotify iframe { display: block; width: 100%; height: 152px; border: 0; border-radius: 12px; }
+.song .song-artist { margin: 0 4px; }
+.song h4 { font: 600 1.5rem/1.2 var(--f-display); letter-spacing: -0.015em; margin: 0 4px 4px; }
+.song p:not(.eyebrow) { margin: 0 4px; max-width: none; color: var(--muted); text-wrap: pretty; hyphens: manual; }
+.song p strong { font-weight: 600; color: var(--ink); }
 
 /* field dock: small in the corner, grows on hover or keyboard focus */
 .stage {
@@ -403,7 +422,7 @@ html[data-intro="done"] #loader { transform: translateY(-100%); visibility: hidd
   .home-top { grid-template-columns: minmax(0, 1fr); gap: 40px; }
   .role { grid-template-columns: minmax(0, 1fr); gap: 6px; }
   .role-photos { height: 14rem; margin: 14px 0 0; }
-  .things { grid-template-columns: minmax(0, 1fr); }
+  .things, .song-grid { grid-template-columns: minmax(0, 1fr); }
   .grid, .proj-meta, .proj-sec, .proj-shots.two, .proj-shots.three, .styles { grid-template-columns: minmax(0, 1fr); }
   .proj-shots.two .arc-card { position: static; }
   .proj-sec { padding: 36px 0; }

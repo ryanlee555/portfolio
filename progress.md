@@ -42,11 +42,15 @@ Living handoff file. Read this first in any new chat. Update it at the end of ev
 - Opening a project: header lines rise in one after another, then the hero and each section fade up as they scroll into view (`src/components/Reveal.tsx`, `data-reveal`; reduced motion turns it off)
 - Dock treats `/projects/<slug>` as 2B; clicking 2B there goes back to `/projects`
 
-**Interests (`/interests`)** — still sample placeholder content
+**Interests (`/interests`)**
+- The three interest blurbs are still sample placeholders
+- Pillar 2 is "Music & Concerts" (Ryan's music story); its "Click for songs" button opens the "On repeat" panel below (Close button, scrolls into view; `src/components/InterestBoard.tsx`). Baseball and pillar 3 are still samples
+- On repeat: four song cards (`songs` in `site.ts`, reasons written in Ryan's voice) with Spotify's player via its iFrame API (`src/components/SpotifyTrack.tsx`): one song plays at a time, and the player reloads when a preview pauses or nears its end so Spotify's "Get Spotify" ad doesn't stick. Known gap: the ad can still flash for a few seconds near a preview's end (timing varies by track)
 
 ## Next up
 - [ ] **Theme toggle misbehaves on Home only** (fine on Projects/Interests). Could not reproduce in headless Chrome or WebKit (Playwright); the wave runs on Home there. Leading suspect: Home scrolls and the short pages don't (scrollbar affects the snapshot). Waiting on Ryan: does Experience (also scrolls) break too, which browser, and what exactly he sees.
-- [ ] Fill Interests (baseball first, plus working out, music; ask Ryan for details)
+- [ ] Fill Interests: Baseball and the third pillar blurbs. Ryan to review the song reasons (drafted in his voice)
+- [ ] Spotify ad near the end of a preview: still flashes briefly; was mid-investigation (logging position vs when the ad appears) when Ryan moved on
 - [ ] Message form delivery: Ryan creates a free Formspree form and shares the URL; set `NEXT_PUBLIC_FORM_ENDPOINT` in `.env.local` and on the host. Until then, submitting opens the visitor's email app.
 - [ ] Deploy (Vercel suggested; connects straight to the GitHub repo)
 - [ ] Optional: project detail links, Open Graph/share image
@@ -96,3 +100,5 @@ Living handoff file. Read this first in any new chat. Update it at the end of ev
 - 2026-10-27: Speakeasy GitHub button added (github.com/ryanlee555/Speakeasy). Uncommitted.
 - 2026-10-27: Speakeasy studio paragraph reworded. Uncommitted.
 - 2026-10-27: Removed Brain Alarm placeholder; added italic "More coming soon" under the project cards. Uncommitted.
+- 2026-10-27: Interests: added On repeat song cards with playable Spotify embeds (reasons pending from Ryan). Uncommitted.
+- 2026-10-27: Interests: Music & Concerts pillar with click-to-open On repeat songs, song reasons written, title periods removed, Spotify ad workaround. Uncommitted.

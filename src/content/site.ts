@@ -304,16 +304,65 @@ export const projects: Project[] = [
 
 export type Interest = {
   name: string;
-  blurb: string;
+  blurb: string; // **bold** works
+  opens?: "songs"; // a button under the blurb that reveals the "On repeat" songs
 };
 
-// sample
+// Baseball and the third pillar are still samples.
 export const interests: Interest[] = [
   {
     name: "Baseball",
     blurb:
       "The reason this site looks like this. Your team, your favorite ballpark, and the first game you remember go here.",
   },
-  { name: "Interest two", blurb: "A line or two about it." },
+  {
+    name: "Music & Concerts",
+    blurb:
+      "I grew up with music. I took **singing lessons** as a kid, so I've always been drawn to it. In high school I listened to a lot of pop, R&B, and K‑R&B, artists like **The Weeknd, Bruno Mars, and wave to earth**. I've also always loved musicals, and Dear Theodosia has had a place in my heart since I saw Hamilton **on Broadway in 2022**. Lately it's been a lot of **EDM**, and I love going to **concerts and raves** to express myself and have fun with friends. Click below to see some of the songs I have on repeat.",
+    opens: "songs",
+  },
   { name: "Interest three", blurb: "A line or two about it." },
+];
+
+export type Song = {
+  title: string;
+  artist: string; // shown above the title; the Spotify player shows the full credits
+  spotifyId: string; // from the track's Spotify link: open.spotify.com/track/<this>
+  why: string[]; // one string per paragraph; **bold** works
+};
+
+// The "On repeat" songs on Interests. Each plays through Spotify's embedded player.
+export const songs: Song[] = [
+  {
+    title: "Carry You",
+    artist: "Martin Garrix",
+    spotifyId: "31ZO9XuKt48Qb2eUTBynd2",
+    why: [
+      "I first heard this song live at **EDC Las Vegas in 2026**, and I fell in love with it immediately. Martin Garrix has a way of building a drop that feels **huge but still emotional**: the synths swell, the vocals carry the melody, and then everything opens up at once. Hearing that live, with thousands of people singing along around me, is something I'll **never forget**.",
+    ],
+  },
+  {
+    title: "Infinite",
+    artist: "GRiZ",
+    spotifyId: "4zTVDxD5KpLjrSAiLcxl4b",
+    why: [
+      "My **favorite song** from my **favorite artist, GRiZ**. Nobody else in EDM sounds like him: he mixes **funky, soulful grooves** with heavy bass and plays **live saxophone** right over the top. Infinite has that **feel-good, uplifting energy** that makes it impossible not to smile.",
+    ],
+  },
+  {
+    title: "Good Night Good Dream",
+    artist: "Nerd Connection",
+    spotifyId: "423WHvB4mKprM6hELzpH3F",
+    why: [
+      "Such a **beautiful Korean melody** about **love, heartbreak, and farewell**. It's soft, warm, and a little bittersweet, like saying goodbye to someone you still care about, and it's the kind of song I put on **late at night** when everything slows down.",
+    ],
+  },
+  {
+    title: "Dear Theodosia",
+    artist: "Hamilton",
+    spotifyId: "2sEq2rC3ynYsT49x7utWnd",
+    why: [
+      "I've been **obsessed with Hamilton** since I was introduced to it in high school, and seeing it **live on Broadway in 2022** was a dream come true. Dear Theodosia is Burr and Hamilton singing to their newborn kids about the world they hope to leave them, and it's one of the **most tender moments** in the whole show. It still gets me every time.",
+    ],
+  },
 ];
