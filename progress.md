@@ -16,7 +16,7 @@ Living handoff file. Read this first in any new chat. Update it at the end of ev
 - 0-100 intro loader, once per browser session
 - Dark mode by default; sun/moon toggle in header. Switching grows the new theme out of the toggle as a soft-edged circle (CSS `@keyframes` on `::view-transition-new(root)`, 0.9s); choice saved in localStorage
 - Header: name (left); theme toggle, Resume ↗ (`public/ryan-lee-resume.pdf`), GitHub ↗, LinkedIn ↗ (right)
-- Field dock (bottom-right): grows only on real hover and shows all four base labels; hint "Click a base, or use the ← → keys" on top. Clicking a base waddles the penguin there, then navigates. Lineup links, header name, and ←/→ keys waddle without growing the dock. Back/forward makes the penguin catch up.
+- Field dock (top-right, just below the header links): grows only on real hover and shows all four base labels; hint "Click a base, or use the ← → keys" on top. Clicking a base waddles the penguin there, then navigates. Lineup links, header name, and ←/→ keys waddle without growing the dock. Back/forward makes the penguin catch up.
 - Easter egg: hovering the penguin turns it into a random duck, lion, koala, or turtle (new pick each hover; default is always the penguin; art reused from `GameCharacters.tsx`)
 - Custom cursor: white dot with difference blend (inverts over content), grows on links; off on touch screens
 - Footer: "designed and developed by / Ryan Lee" (left), "all rights reserved, / ryan lee ©2026" (right), small
@@ -126,3 +126,9 @@ Living handoff file. Read this first in any new chat. Update it at the end of ev
 - 2026-10-27: Fun fact changed to "Been to over 50 concerts/raves". Not committed.
 - 2026-10-27: Fun facts pinned to the bottom of the looking section (bottom lines match the photo grid); photo frames min height 175px so the gap above the facts grew. Not committed.
 - 2026-10-27: Added fun facts (12 muscle-ups, spelling bee); fact text slightly smaller so photos stay 175px tall. Not committed.
+- 2026-10-27: Field dock moved from bottom-right to top-right (hint now below it, header links padded to clear it); About copy says top-right corner. Not committed.
+- 2026-10-27: Dock moved down to sit just below the header links row (header padding removed). Not committed.
+- 2026-10-27: Dock's right edge now lines up with the page margin (same edge as the header links). Not committed.
+- 2026-10-27: Footer's extra bottom padding (reserved for the old bottom-right dock) trimmed from 160px to 40px. Not committed.
+- 2026-10-27: "top-right corner" bolded in the About paragraph. Not committed.
+- 2026-10-27: "0 to 1" bolded in the looking paragraph. Not committed.

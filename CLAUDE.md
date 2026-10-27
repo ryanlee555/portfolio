@@ -17,7 +17,7 @@ Personal portfolio site for Ryan Lee. Repo: https://github.com/ryanlee555/portfo
 ## Structure
 - `src/content/site.ts`: all copy (profile, contact, experience, projects, interests). Edit content here, not in pages.
 - `src/lib/bases.ts`: the four bases = the four pages (`/`, `/experience`, `/projects`, `/interests`) and their field coordinates.
-- `src/components/Dock.tsx`: bottom-right ballfield nav. Grows on hover; clicking a base makes the penguin waddle there, then `router.push`. Back/forward makes the penguin catch up.
+- `src/components/Dock.tsx`: top-right ballfield nav. Grows on hover; clicking a base makes the penguin waddle there, then `router.push`. Back/forward makes the penguin catch up.
 - `src/components/BaseLink.tsx`: links elsewhere on the page that ask the dock to run first (via a `base:go` window event).
 - `src/components/Loader.tsx`: 0-100 intro, once per browser session (`sessionStorage`), gated by an inline script in `layout.tsx`.
 - `src/components/Penguin.tsx`: the penguin (and the random animal it turns into on hover).

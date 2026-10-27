@@ -41,7 +41,7 @@ import speakeasyStudio from "@/assets/projects/speakeasy/studio.webp";
 // Home section between the lineup and the contact scoreboard. Draft wording, Ryan to edit.
 export const looking = {
   eyebrow: "What I'm looking for",
-  text: "I'm looking for **product management** roles on a team building something people use every day, where I can pair my engineering and data background with real customer problems and ship from 0 to 1. If that sounds like your team, I'd love to talk :D",
+  text: "I'm looking for **product management** roles on a team building something people use every day, where I can pair my engineering and data background with real customer problems and ship from **0 to 1**. If that sounds like your team, I'd love to talk :D",
   facts: [
     "Born on 5/5/2005",
     "Ran a half marathon",
@@ -71,7 +71,7 @@ export const profile = {
   // One string per paragraph. Wrap text in **double asterisks** to bold it.
   intro: [
     "Thanks for visiting my portfolio! I'm a fourth-year student at UC Berkeley studying **Industrial Engineering** and **Data Science**. I've explored a few different paths, including consulting and program management, but I ended up falling in love with product, and that's what I'm pursuing now. I love building products from 0 to 1 and learning something new with each one.",
-    "Outside of school and work, I love working out, discovering new music, and sports, especially baseball, as you may have guessed from the theme. Use the mini baseball field in the bottom-right corner to round the bases and explore the rest of the site!",
+    "Outside of school and work, I love working out, discovering new music, and sports, especially baseball, as you may have guessed from the theme. Use the mini baseball field in the **top-right corner** to round the bases and explore the rest of the site!",
   ],
   github: "https://github.com/ryanlee555",
   resume: "/ryan-lee-resume.pdf",
