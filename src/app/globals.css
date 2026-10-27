@@ -317,7 +317,7 @@ a.card:hover .proj-inset { transform: translateY(-22px) rotate(0deg); box-shadow
 .things p strong { font-weight: 600; color: var(--ink); }
 .things li { transition: border-color .3s ease; }
 .things li.active { border-top-color: var(--ink); }
-.pillar-btn { justify-self: start; margin-top: 8px; font: 500 .8rem/1 var(--f-mono); letter-spacing: .04em; color: var(--ink); background: none; border: 1px solid var(--line); border-radius: 999px; padding: 10px 14px; cursor: pointer; transition: border-color .2s ease, transform .25s ease; }
+.pillar-btn { justify-self: start; margin-top: 8px; font: 500 .9rem/1 var(--f-body); color: var(--ink); background: none; border: 1px solid var(--line); border-radius: 999px; padding: 10px 14px; cursor: pointer; transition: border-color .2s ease, transform .25s ease; }
 .pillar-btn:hover { border-color: var(--ink); transform: translateY(-2px); }
 /* songs: Spotify's player on top, then the artist, title, and why I love it */
 .songs { margin: 64px 0 0; scroll-margin-top: 24px; animation: rise .6s cubic-bezier(.2, .7, .2, 1) both; }
