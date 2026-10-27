@@ -41,6 +41,7 @@ Living handoff file. Read this first in any new chat. Update it at the end of ev
 - Screenshots in `src/assets/projects/grove/` (cropped from Ryan's shots; landing page "how it works" crop saved but unused)
 - Speakeasy is real too: `/projects/speakeasy` (live site + GitHub links), sections The studio, Three practice modes (three captioned panels, padded to equal height), Watch it back / build the habit, How it's built. Screenshots in `src/assets/projects/speakeasy/`
 - Brain Alarm removed; an italic "More coming soon" line sits under the cards
+- Scroll animations: Home (the "looking for" note, the photo grid with its photos arriving one after another, the contact scoreboard) and Experience (each role rises in, its photos slide in a beat later) fade up as they scroll into view, using the same `Reveal` + `data-reveal` setup as the project pages (each page needs its own unique selector class, e.g. `.home-page`, since hidden pages stay alive in the DOM). Anything above the fold or jumped past shows immediately; reduced motion turns it off
 - Opening a project: header lines rise in one after another, then the hero and each section fade up as they scroll into view (`src/components/Reveal.tsx`, `data-reveal`; reduced motion turns it off)
 - Dock treats `/projects/<slug>` as 2B; clicking 2B there goes back to `/projects`
 
@@ -146,3 +147,4 @@ Living handoff file. Read this first in any new chat. Update it at the end of ev
 - 2026-10-27: Dock hide button is now a › chevron, moved a little left and down into the corner. Not committed.
 - 2026-10-27: Deployed to Vercel and connected ryanlee.io. Wrote README.md in the Grove/Speakeasy style (what it is, features, stack, how it fits together, getting started, structure, roadmap). Not committed.
 - 2026-10-27: Live at https://www.ryanlee.io (bare domain redirects); contact form confirmed delivering from the live site. README pushed (241ba33).
+- 2026-10-27: Scroll reveal animations on Home and Experience. Verified in headless Chrome (above the fold shows at once, rest reveals on scroll, jump to bottom leaves nothing hidden, no leftover transforms). Not committed.

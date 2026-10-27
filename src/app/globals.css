@@ -275,6 +275,20 @@ a.card:hover .proj-inset { transform: translateY(-22px) rotate(0deg); box-shadow
 .reveal-on [data-reveal] { transition: opacity .8s ease, transform .8s cubic-bezier(.2, .7, .2, 1); }
 .reveal-on [data-reveal]:not(.in) { opacity: 0; transform: translateY(24px); }
 .reveal-on .proj-hero { transition-delay: .35s; }
+/* Home and Experience: the same rise, plus a few staggers so groups feel like they arrive together */
+.reveal-on .looking .photo-grid { transition-delay: .12s; }
+.reveal-on .photo-grid:not(.in) .photo-cell { opacity: 0; transform: translateY(14px); }
+.reveal-on .photo-grid .photo-cell { transition: opacity .7s ease, transform .5s cubic-bezier(.2, .7, .2, 1); }
+.reveal-on .photo-grid.in .photo-cell:nth-child(2) { transition-delay: .06s; }
+.reveal-on .photo-grid.in .photo-cell:nth-child(3) { transition-delay: .12s; }
+.reveal-on .photo-grid.in .photo-cell:nth-child(4) { transition-delay: .18s; }
+.reveal-on .photo-grid.in .photo-cell:nth-child(5) { transition-delay: .24s; }
+.reveal-on .photo-grid.in .photo-cell:nth-child(6) { transition-delay: .30s; }
+.reveal-on .photo-grid.in .photo-cell:nth-child(7) { transition-delay: .36s; }
+.reveal-on .photo-grid.in .photo-cell:nth-child(8) { transition-delay: .42s; }
+.reveal-on .photo-grid.in .photo-cell:hover { transition-delay: 0s; transform: translateY(-3px); }
+.reveal-on .role .role-photos { transition: opacity .9s ease .2s, transform .9s cubic-bezier(.2, .7, .2, 1) .2s; }
+.reveal-on .role:not(.in) .role-photos { opacity: 0; transform: translateX(18px); }
 /* inside a section, the text leads and the screenshots follow */
 .reveal-on .proj-sec .proj-text > * { transition: opacity .7s ease, transform .7s cubic-bezier(.2, .7, .2, 1); }
 .reveal-on .proj-sec:not(.in) .proj-text > * { opacity: 0; transform: translateY(16px); }
@@ -571,7 +585,7 @@ html[data-intro="done"] #loader { transform: translateY(-100%); visibility: hidd
   .page { animation: none; }
   .proj-page > * { animation: none !important; }
   .g-bat, .g-cheer, .g-party *, .game-board .charged { animation-duration: 1ms !important; }
-  .reveal-on [data-reveal], .reveal-on .proj-sec .proj-text > * { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .reveal-on [data-reveal], .reveal-on .proj-sec .proj-text > *, .reveal-on .photo-cell, .reveal-on .role-photos { opacity: 1 !important; transform: none !important; transition: none !important; }
   .draw { stroke-dashoffset: 0; animation: none !important; }
   .penguin.running .pwad, .penguin.running .pbob, .penguin.running .p-foot { animation: none !important; }
 }

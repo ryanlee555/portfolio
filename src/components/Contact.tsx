@@ -98,7 +98,7 @@ function MessageForm() {
 
 export default function Contact() {
   return (
-    <section className="board" aria-labelledby="contact-title">
+    <section className="board" data-reveal aria-labelledby="contact-title">
       <div className="board-head">
         <span className="bm">SCOREBOARD</span>
         <span className="bm">ANY QUESTIONS?</span>

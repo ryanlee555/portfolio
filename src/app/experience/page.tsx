@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Reveal from "@/components/Reveal";
 import { BoldNumbers } from "@/components/RichText";
 import { experience } from "@/content/site";
 
@@ -7,12 +8,12 @@ export const metadata: Metadata = { title: "Experience" };
 
 export default function Experience() {
   return (
-    <section className="page" aria-labelledby="experience-title">
+    <section className="page experience-page" aria-labelledby="experience-title">
       <p className="eyebrow">First base · Experience</p>
       <h2 id="experience-title">Where I&apos;ve worked</h2>
       <div className="roles">
         {experience.map((role) => (
-          <article className="role" key={`${role.company}-${role.dates}`}>
+          <article className="role" data-reveal key={`${role.company}-${role.dates}`}>
             <div className="role-side">
               <div className="mono">{role.dates}</div>
               <div className="role-logo" style={{ height: role.logoHeight }}>
@@ -48,6 +49,7 @@ export default function Experience() {
           </article>
         ))}
       </div>
+      <Reveal selector=".experience-page" />
     </section>
   );
 }

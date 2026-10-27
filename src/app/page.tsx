@@ -3,6 +3,7 @@ import portrait from "@/assets/ryan.jpg";
 import BaseLink from "@/components/BaseLink";
 import Contact from "@/components/Contact";
 import PhotoGrid from "@/components/PhotoGrid";
+import Reveal from "@/components/Reveal";
 import RichText from "@/components/RichText";
 import { lineup, looking, profile } from "@/content/site";
 
@@ -14,7 +15,7 @@ const bases = [
 
 export default function Home() {
   return (
-    <section className="page" aria-labelledby="home-title">
+    <section className="page home-page" aria-labelledby="home-title">
       <div className="home-top">
         <div className="intro">
           <Image
@@ -56,7 +57,7 @@ export default function Home() {
         </div>
       </div>
       <div className="looking">
-        <div>
+        <div data-reveal>
           <p className="eyebrow">{looking.eyebrow}</p>
           <p className="lede">
             <RichText text={looking.text} />
@@ -71,6 +72,7 @@ export default function Home() {
         <PhotoGrid photos={looking.photos} />
       </div>
       <Contact />
+      <Reveal selector=".home-page" />
     </section>
   );
 }
