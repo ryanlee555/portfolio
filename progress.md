@@ -105,3 +105,5 @@ Living handoff file. Read this first in any new chat. Update it at the end of ev
 - 2026-10-27: "Click for songs" / "Hide songs" button now uses the body font. Uncommitted.
 - 2026-10-27: Music & Concerts blurb updated to Ryan's wording; bold only on the artists, Dear Theodosia, Hamilton, EDM. Uncommitted.
 - 2026-10-27: Song reasons for Infinite and Good Night Good Dream updated to Ryan's wording. Uncommitted.
+- 2026-10-27: Baseball pillar blurb written in Ryan's words (similar length to Music & Concerts); it mentions a mini baseball game that isn't built yet. Uncommitted.
+- 2026-10-27: "Dodgers" in the Baseball blurb is bold Dodger blue (`^^text^^` in site.ts; `--dodger` token: #005A9C light, #3E8EDE dark). Uncommitted.

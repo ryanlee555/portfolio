@@ -8,6 +8,7 @@
   --line: #25322A;
   --field: #151F19;
   --accent: #F0574D;
+  --dodger: #3E8EDE; /* Dodger blue, lifted so it reads on the dark background */
   --beak: #F2A244;
   --pbody: #233140;
   --pbelly: #F6F7F4;
@@ -31,6 +32,7 @@
   --line: #D3DAD0;
   --field: #E3EADF;
   --accent: #D2382F;
+  --dodger: #005A9C; /* the Dodgers' own blue */
   --beak: #E98A2A;
   --pline: transparent;
   --board: #101A14;
@@ -315,6 +317,7 @@ a.card:hover .proj-inset { transform: translateY(-22px) rotate(0deg); box-shadow
 .things .big { font: 700 clamp(1.7rem, 3.2vw, 2.4rem)/1.1 var(--f-display); letter-spacing: -0.025em; }
 .things p { margin: 0; color: var(--muted); }
 .things p strong { font-weight: 600; color: var(--ink); }
+.things p strong.dodger-blue, .dodger-blue { color: var(--dodger); }
 .things li { transition: border-color .3s ease; }
 .things li.active { border-top-color: var(--ink); }
 .pillar-btn { justify-self: start; margin-top: 8px; font: 500 .9rem/1 var(--f-body); color: var(--ink); background: none; border: 1px solid var(--line); border-radius: 999px; padding: 10px 14px; cursor: pointer; transition: border-color .2s ease, transform .25s ease; }
