@@ -318,7 +318,7 @@ export const interests: Interest[] = [
   {
     name: "Music & Concerts",
     blurb:
-      "I grew up with music. I took **singing lessons** as a kid, so I've always been drawn to it. In high school I listened to a lot of pop, R&B, and K‑R&B, artists like **The Weeknd, Bruno Mars, and wave to earth**. I've also always loved musicals, and Dear Theodosia has had a place in my heart since I saw Hamilton **on Broadway in 2022**. Lately it's been a lot of **EDM**, and I love going to **concerts and raves** to express myself and have fun with friends. Click below to see some of the songs I have on repeat.",
+      "I grew up with music. I took singing lessons as a kid, so I've always been drawn to it. In high school, I listened to a lot of pop, R&B, and K‑R&B, artists like **The Weeknd, Bruno Mars, and Wave to Earth**. I've also always loved musicals, and **Dear Theodosia** has had a place in my heart since I saw **Hamilton** on Broadway in 2022. Lately it's been a lot of **EDM**, and I love going to concerts and raves to express myself and have fun with friends. Click below to see some of the songs I have on repeat!",
     opens: "songs",
   },
   { name: "Interest three", blurb: "A line or two about it." },
