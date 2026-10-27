@@ -38,6 +38,7 @@ Living handoff file. Read this first in any new chat. Update it at the end of ev
 - Grove is real and links to its detail page `/projects/grove` (`src/app/projects/[slug]/page.tsx`, data in `projects[].detail` in `site.ts`): live site + GitHub buttons, role/stack/status, hero shot, Why I built it, Spending overview, Budgets, Budgets has a live, draggable copy of Grove's arc slider (`src/components/ArcSlider.tsx`, DM Sans, Grove's palette in both themes; snaps to $50, amber past 80%, Confirm/Cancel/Remove limit, arrow keys), Hamilton AI (six style cards, from Ryan's settings screen), How it's built. Section paragraphs run the full content width, to the screenshots' right edge
 - Screenshots in `src/assets/projects/grove/` (cropped from Ryan's shots; landing page "how it works" crop saved but unused)
 - Speakeasy and Brain Alarm are placeholders ("Write-up coming soon")
+- Opening a project: header lines rise in one after another, then the hero and each section fade up as they scroll into view (`src/components/Reveal.tsx`, `data-reveal`; reduced motion turns it off)
 - Dock treats `/projects/<slug>` as 2B; clicking 2B there goes back to `/projects`
 
 **Interests (`/interests`)** — still sample placeholder content
@@ -56,7 +57,7 @@ Living handoff file. Read this first in any new chat. Update it at the end of ev
 - All copy lives in `src/content/site.ts` (profile, lineup, contact, experience, projects, interests).
 - Photo: used the restaurant photo; the round beach photo had a stray overlay dot.
 - Dev mode is slow on the first visit to each page (on-demand compile); production is instant.
-- Testing tip: the in-app browser pane often runs in the background, which skips view transitions and stalls animations. For visual checks, headless Chrome (`/Applications/Google Chrome.app`) or Playwright WebKit (cached in `~/Library/Caches/ms-playwright`) driven from a scratch script works better.
+- Testing tip: when the in-app browser pane is hidden, React also delays hydrating Suspense content (client code there won't run until a real click). The in-app browser pane often runs in the background, which skips view transitions and stalls animations. For visual checks, headless Chrome (`/Applications/Google Chrome.app`) or Playwright WebKit (cached in `~/Library/Caches/ms-playwright`) driven from a scratch script works better.
 - `gh` CLI not installed.
 
 ## Contact info (for the site)
@@ -90,3 +91,4 @@ Living handoff file. Read this first in any new chat. Update it at the end of ev
 - 2026-10-26: Arc slider card now matches the budgets screenshot's height (absolutely placed in the row; arc scales to fit).
 - 2026-10-26: Grove copy: key phrases bolded (`**...**` in site.ts, rendered with RichText on the card and detail page). Uncommitted.
 - 2026-10-26: Project detail pages no longer show the "Second base · Projects" eyebrow (overview only). Uncommitted.
+- 2026-10-26: Grove page entrance animations (staggered header, scroll reveal for sections). Verified in headless Chrome. Uncommitted.

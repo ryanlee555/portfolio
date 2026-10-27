@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import ArcSlider from "@/components/ArcSlider";
+import Reveal from "@/components/Reveal";
 import RichText from "@/components/RichText";
 import { projects } from "@/content/site";
 
@@ -68,12 +69,12 @@ async function ProjectBody({ params }: { params: PageProps<"/projects/[slug]">["
       </dl>
 
       {project.cover && (
-        <figure className="shot proj-hero">
+        <figure data-reveal className="shot proj-hero">
           <Image src={project.cover.src} alt={project.cover.alt} sizes="(max-width: 1280px) 100vw, 1220px" loading="eager" />
         </figure>
       )}
 
-      <section className="proj-sec">
+      <section data-reveal className="proj-sec">
         <h3>Why I built it</h3>
         <div className="proj-text">
           {detail.why.map((para) => (
@@ -85,7 +86,7 @@ async function ProjectBody({ params }: { params: PageProps<"/projects/[slug]">["
       </section>
 
       {detail.sections.map((sec, i) => (
-        <section className="proj-sec" key={sec.title}>
+        <section data-reveal className="proj-sec" key={sec.title}>
           <h3>
             <span className="mono">{String(i + 1).padStart(2, "0")}</span>
             {sec.title}
@@ -118,7 +119,7 @@ async function ProjectBody({ params }: { params: PageProps<"/projects/[slug]">["
         </section>
       ))}
 
-      <section className="proj-sec">
+      <section data-reveal className="proj-sec">
         <h3>How it&apos;s built</h3>
         <div className="proj-text">
           <dl className="built">
@@ -132,6 +133,7 @@ async function ProjectBody({ params }: { params: PageProps<"/projects/[slug]">["
         </div>
       </section>
 
+      <Reveal selector=".proj-page" />
     </article>
   );
 }

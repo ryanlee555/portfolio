@@ -238,6 +238,24 @@ a.card:hover .proj-inset { transform: translateY(-22px) rotate(0deg); box-shadow
 .shot img { display: block; width: 100%; height: auto; transition: transform .6s cubic-bezier(.3, 0, .2, 1); }
 .shot:hover img { transform: scale(1.015); }
 .proj-hero { margin-top: 40px; }
+/* opening a project: the header settles in line by line, then each section rises as it scrolls into view */
+.proj-page > .back, .proj-page > h2, .proj-page > .lede, .proj-page > .proj-links, .proj-page > .proj-meta {
+  animation: rise .7s cubic-bezier(.2, .7, .2, 1) both;
+}
+.proj-page > h2 { animation-delay: .06s; }
+.proj-page > .lede { animation-delay: .14s; }
+.proj-page > .proj-links { animation-delay: .22s; }
+.proj-page > .proj-meta { animation-delay: .3s; }
+@keyframes rise { from { opacity: 0; transform: translateY(14px); } }
+.reveal-on [data-reveal] { transition: opacity .8s ease, transform .8s cubic-bezier(.2, .7, .2, 1); }
+.reveal-on [data-reveal]:not(.in) { opacity: 0; transform: translateY(24px); }
+.reveal-on .proj-hero { transition-delay: .35s; }
+/* inside a section, the text leads and the screenshots follow */
+.reveal-on .proj-sec .proj-text > * { transition: opacity .7s ease, transform .7s cubic-bezier(.2, .7, .2, 1); }
+.reveal-on .proj-sec:not(.in) .proj-text > * { opacity: 0; transform: translateY(16px); }
+.reveal-on .proj-sec.in .proj-text > :nth-child(2) { transition-delay: .12s; }
+.reveal-on .proj-sec.in .proj-text > :nth-child(3) { transition-delay: .24s; }
+.reveal-on .proj-sec.in .proj-text > :nth-child(n+4) { transition-delay: .32s; }
 .proj-sec { display: grid; grid-template-columns: 11rem minmax(0, 1fr); gap: 8px 40px; padding: 48px 0; border-bottom: 1px solid var(--line); }
 .proj-sec:last-child { border-bottom: 0; }
 .proj-sec h3 { font: 600 1.35rem/1.25 var(--f-display); letter-spacing: -0.015em; margin: 0; display: grid; gap: 8px; align-content: start; }
@@ -395,6 +413,8 @@ html[data-intro="done"] #loader { transform: translateY(-100%); visibility: hidd
 @media (prefers-reduced-motion: reduce) {
   .site, main, #loader, .stage { transition: none; }
   .page { animation: none; }
+  .proj-page > * { animation: none !important; }
+  .reveal-on [data-reveal], .reveal-on .proj-sec .proj-text > * { opacity: 1 !important; transform: none !important; transition: none !important; }
   .draw { stroke-dashoffset: 0; animation: none !important; }
   .penguin.running .pwad, .penguin.running .pbob, .penguin.running .p-foot { animation: none !important; }
 }
